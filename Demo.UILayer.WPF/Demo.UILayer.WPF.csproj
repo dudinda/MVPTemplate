@@ -90,6 +90,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppGateway.cs" />
+    <Compile Include="WindowEventBinders\Main\Implementation\MainWindowEventBinder.cs" />
+    <Compile Include="WindowEventBinders\Main\Interface\IMainWindowEventBinder.cs" />
     <Compile Include="WindowExposers\IMainWindowExposer.cs" />
     <Compile Include="WindowExposers\ISingletonWindowExposer.cs" />
     <Compile Include="WindowExposers\ITransientWindowExposer.cs" />
@@ -136,18 +138,16 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <None Include="Config\packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Config\App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="WindowEventBinders\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Demo.PresentationLayer\Demo.PresentationLayer.csproj">
       <Project>{4edf5f70-92aa-4182-b2e9-296233b26e12}</Project>

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Demo.UILayer.WinForms
+namespace Demo.UILayer.WinForms.Forms.Singleton
 {
-    public partial class Form1 : Form
+    public partial class SingletonForm : Form
     {
-        public Form1()
+        public SingletonForm()
         {
             InitializeComponent();
         }

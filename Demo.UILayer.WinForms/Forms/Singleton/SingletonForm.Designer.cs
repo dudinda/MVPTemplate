@@ -1,7 +1,7 @@
 ﻿
-namespace Demo.UILayer.WinForms
+namespace Demo.UILayer.WinForms.Forms.Singleton
 {
-    partial class Form1
+    partial class SingletonForm
     {
         /// <summary>
         /// Required designer variable.
@@ -32,10 +32,9 @@ namespace Demo.UILayer.WinForms
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Text = "SingletonForm";
         }
 
         #endregion
     }
 }
-

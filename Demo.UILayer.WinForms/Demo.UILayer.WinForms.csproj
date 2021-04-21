@@ -9,6 +9,8 @@
     <RootNamespace>Demo.UILayer.WinForms</RootNamespace>
     <AssemblyName>Demo.UILayer.WinForms</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -47,14 +49,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="AppGateway.cs" />
+    <Compile Include="FormExposers\IMainFormExposer.cs" />
+    <Compile Include="FormExposers\ISingletonFormExposer.cs" />
+    <Compile Include="FormExposers\ITransientFormExposer.cs" />
+    <Compile Include="Forms\BaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\Main\MainForm.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Forms\Main\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Singleton\SingletonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Singleton\SingletonForm.Designer.cs">
+      <DependentUpon>SingletonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Transient\TransientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Transient\TransientForm.Designer.cs">
+      <DependentUpon>TransientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WinformsStartup.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,13 +96,16 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Config\App.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Demo.PresentationLayer\Demo.PresentationLayer.csproj">
       <Project>{4edf5f70-92aa-4182-b2e9-296233b26e12}</Project>
       <Name>Demo.PresentationLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="FormEventBinders\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

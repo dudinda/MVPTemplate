@@ -4,7 +4,13 @@ using System.Text;
 
 namespace Demo.PresentationLayer.DomainEvents
 {
-    class BaseEventArgs
+    public class BaseEventArgs 
     {
+        public DateTime PublishedOn { get; }
+
+        protected BaseEventArgs()
+        {
+            PublishedOn = DateTime.Now;
+        }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace Demo.UILayer.WPF.WindowExposers
 {
-    internal interface IMainWindowExposer
+    public interface IMainWindowExposer
     {
         /// <summary>
         /// Item to open transient menu.

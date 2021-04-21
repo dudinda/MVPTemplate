@@ -1,6 +1,7 @@
 ﻿namespace Demo.PresentationLayer.ViewModels
 {
-    internal class SingletonFormViewModel
+    internal sealed class SingletonFormViewModel
     {
+
     }
 }

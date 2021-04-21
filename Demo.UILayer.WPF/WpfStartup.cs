@@ -1,4 +1,6 @@
 ﻿using Demo.PresentationLayer.Views;
+using Demo.UILayer.WPF.WindowEventBinders.Main.Implementation;
+using Demo.UILayer.WPF.WindowEventBinders.Main.Interface;
 using Demo.UILayer.WPF.Windows.Singleton;
 using Demo.UILayer.WPF.Windows.Transient;
 
@@ -15,7 +17,8 @@ namespace Demo.UILayer.WPF
             builder
                 .RegisterSingleton<IMainView, MainWindow>()
                 .RegisterTransient<ITransientFormView, TransientWindow>()
-                .RegisterSingleton<ISingletonFormView, SingletonWindow>();
+                .RegisterSingleton<ISingletonFormView, SingletonWindow>()
+                .RegisterTransient<IMainWindowEventBinder, MainWindowEventBinder>();
         }
     }
 }
