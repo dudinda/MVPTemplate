@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Demo.PresentationLayer.DomainEvents
 {
-    public class BaseEventArgs 
+    public abstract class BaseEventArgs 
     {
         public DateTime PublishedOn { get; }
 

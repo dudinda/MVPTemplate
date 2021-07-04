@@ -21,5 +21,10 @@ namespace Demo.UILayer.WinForms.Forms.Main
             Context.MainForm = this;
             Application.Run(Context);
         }
+
+        public void Tooltip(string msg)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

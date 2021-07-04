@@ -13,18 +13,19 @@ namespace Demo.PresentationLayer.Presenters
 {
     public class MainPresenter : BasePresenter<IMainView>,
         ISubscriber<ShowSingletonViewEventArgs>,
-        ISubscriber<ShowTransientViewEventArgs>
+        ISubscriber<ShowTransientViewEventArgs>,
+        ISubscriber<MsgEventArgs>
     {
         public async Task OnEventHandler(object publisher, ShowTransientViewEventArgs e)
         {
             try
             {
-                Controller.Run<TransientViewPresenter, TransientFormViewModel>(
+                Controller.Run<TransientWindowPresenter, TransientFormViewModel>(
                     new TransientFormViewModel());
             }
             catch(Exception ex)
             {
-
+                View.Tooltip(ex.Message);
             }
         }
 
@@ -32,12 +33,24 @@ namespace Demo.PresentationLayer.Presenters
         {
             try
             {
-                Controller.Run<SingletonViewPresenter, SingletonFormViewModel>(
+                Controller.Run<SingletonWindowPresenter, SingletonFormViewModel>(
                     new SingletonFormViewModel());
             }
             catch (Exception ex)
             {
+                View.Tooltip(ex.Message);
+            }
+        }
 
+        public async Task OnEventHandler(object publisher, MsgEventArgs e)
+        {
+            try
+            {
+                View.Tooltip(e.Message);
+            }
+            catch (Exception ex)
+            {
+                View.Tooltip(ex.Message);
             }
         }
     }

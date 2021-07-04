@@ -1,10 +1,14 @@
 ﻿
+using System;
+using System.ComponentModel;
 using System.Windows.Controls;
 
 using Demo.PresentationLayer.Views;
 using Demo.UILayer.WPF.WindowEventBinders.Main.Interface;
 using Demo.UILayer.WPF.WindowExposers;
 using Demo.UILayer.WPF.Windows;
+
+using ImageProcessing.Microkernel.EntryPoint;
 
 namespace Demo.UILayer.WPF
 {
@@ -35,6 +39,18 @@ namespace Demo.UILayer.WPF
         public new void Show()
         {
             App.Run(this);
+        }
+
+        public void Tooltip(string message)
+        {
+            MessageLabel.Content = message;
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            AppLifecycle.Exit();
+            base.OnClosing(e);
+            Environment.Exit(0);
         }
     }
 }

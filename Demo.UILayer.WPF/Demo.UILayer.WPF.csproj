@@ -92,6 +92,10 @@
     <Compile Include="AppGateway.cs" />
     <Compile Include="WindowEventBinders\Main\Implementation\MainWindowEventBinder.cs" />
     <Compile Include="WindowEventBinders\Main\Interface\IMainWindowEventBinder.cs" />
+    <Compile Include="WindowEventBinders\Singleton\Implementation\SingletonWindowEventBinder.cs" />
+    <Compile Include="WindowEventBinders\Singleton\Interface\ISingletonWindowEventBinder.cs" />
+    <Compile Include="WindowEventBinders\Transient\Implementation\TransientWindowEventBinder.cs" />
+    <Compile Include="WindowEventBinders\Transient\Interface\ITransientWindowEventBinder.cs" />
     <Compile Include="WindowExposers\IMainWindowExposer.cs" />
     <Compile Include="WindowExposers\ISingletonWindowExposer.cs" />
     <Compile Include="WindowExposers\ITransientWindowExposer.cs" />

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Windows.Controls;
 
 namespace Demo.UILayer.WPF.WindowExposers
 {
-    interface ISingletonWindowExposer
+    public interface ISingletonWindowExposer
     {
+        Button Message { get; }
     }
 }

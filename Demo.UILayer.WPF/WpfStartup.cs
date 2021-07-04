@@ -1,6 +1,10 @@
 ﻿using Demo.PresentationLayer.Views;
 using Demo.UILayer.WPF.WindowEventBinders.Main.Implementation;
 using Demo.UILayer.WPF.WindowEventBinders.Main.Interface;
+using Demo.UILayer.WPF.WindowEventBinders.Singleton.Implementation;
+using Demo.UILayer.WPF.WindowEventBinders.Singleton.Interface;
+using Demo.UILayer.WPF.WindowEventBinders.Transient.Implementation;
+using Demo.UILayer.WPF.WindowEventBinders.Transient.Interface;
 using Demo.UILayer.WPF.Windows.Singleton;
 using Demo.UILayer.WPF.Windows.Transient;
 
@@ -14,11 +18,12 @@ namespace Demo.UILayer.WPF
     {
         public void Build(IComponentProvider builder)
         {
-            builder
-                .RegisterSingleton<IMainView, MainWindow>()
-                .RegisterTransient<ITransientFormView, TransientWindow>()
-                .RegisterSingleton<ISingletonFormView, SingletonWindow>()
-                .RegisterTransient<IMainWindowEventBinder, MainWindowEventBinder>();
+            builder.RegisterSingleton<IMainView, MainWindow>()
+                   .RegisterTransient<ITransientFormView, TransientWindow>()
+                   .RegisterSingleton<ISingletonFormView, SingletonWindow>()
+                   .RegisterTransient<IMainWindowEventBinder, MainWindowEventBinder>()
+                   .RegisterTransient<ISingletonWindowEventBinder, SingletonWindowEventBinder>()
+                   .RegisterTransient<ITransientWindowEventBinder, TransientWindowEventBinder>();
         }
     }
 }

@@ -8,10 +8,11 @@
         Title="Demo" Height="450" Width="800">
     <Grid>
         <Menu Name="Menu" HorizontalAlignment="Left" Height="78" Margin="10,10,0,0" VerticalAlignment="Top" Width="772">
-            <MenuItem Header="Transient View" Name="Transient" FontSize="40" Width="380"/>
+            <MenuItem Header="Transient View" x:Name="Transient" FontSize="40" Width="380"/>
             <MenuItem Header="Singleton View" x:Name="Singleton" FontSize="40" Width="380"/>
         </Menu>
         <Label Content="Microkernel Demo" HorizontalAlignment="Center" FontSize="60" VerticalAlignment="Top" Width="520" Margin="131,185,141,0"/>
+        <Label Content="" x:Name="MessageLabel" HorizontalAlignment="Left" Margin="344,311,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </base:BaseWindow>

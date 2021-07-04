@@ -1,6 +1,7 @@
-﻿using System;
+﻿using System.Windows.Controls;
 
 using Demo.PresentationLayer.Views;
+using Demo.UILayer.WPF.WindowEventBinders.Transient.Interface;
 using Demo.UILayer.WPF.WindowExposers;
 
 namespace Demo.UILayer.WPF.Windows.Transient
@@ -11,14 +12,22 @@ namespace Demo.UILayer.WPF.Windows.Transient
     public partial class TransientWindow : BaseWindow,
         ITransientFormView, ITransientWindowExposer
     {
-        public TransientWindow()
+        private readonly ITransientWindowEventBinder _binder;
+
+        public TransientWindow(ITransientWindowEventBinder binder)
         {
             InitializeComponent();
+
+            _binder = binder;
+            _binder.OnElementExpose(this);
         }
 
-        public void ShowInfo()
+        public Button Message
+            => SendMessage;
+
+        public void Tooltip(string msg)
         {
-            throw new NotImplementedException();
+            
         }
     }
 }
