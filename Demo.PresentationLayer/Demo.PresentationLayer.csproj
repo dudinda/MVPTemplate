@@ -11,6 +11,7 @@
     <PackageReference Include="ImageProcessing.Microkernel.EntryPoint" Version="1.0.2">
       <Private>True</Private>
     </PackageReference>
+    <PackageReference Include="System.Diagnostics.EventLog" Version="5.0.1" />
   </ItemGroup>
 
 </Project>

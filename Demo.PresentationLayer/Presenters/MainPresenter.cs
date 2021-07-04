@@ -1,5 +1,5 @@
-﻿
-using System;
+﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 using Demo.PresentationLayer.DomainEvents.Main;
@@ -16,6 +16,12 @@ namespace Demo.PresentationLayer.Presenters
         ISubscriber<ShowTransientViewEventArgs>,
         ISubscriber<MsgEventArgs>
     {
+        private readonly EventLog _logger;
+
+        public MainPresenter(EventLog logger)
+        {
+            _logger = logger;
+        }
         public async Task OnEventHandler(object publisher, ShowTransientViewEventArgs e)
         {
             try
@@ -26,6 +32,7 @@ namespace Demo.PresentationLayer.Presenters
             catch(Exception ex)
             {
                 View.Tooltip(ex.Message);
+                _logger.WriteEntry(ex.Message, EventLogEntryType.Error);
             }
         }
 
@@ -39,6 +46,7 @@ namespace Demo.PresentationLayer.Presenters
             catch (Exception ex)
             {
                 View.Tooltip(ex.Message);
+                _logger.WriteEntry(ex.Message, EventLogEntryType.Error);
             }
         }
 
@@ -51,6 +59,7 @@ namespace Demo.PresentationLayer.Presenters
             catch (Exception ex)
             {
                 View.Tooltip(ex.Message);
+                _logger.WriteEntry(ex.Message, EventLogEntryType.Error);
             }
         }
     }

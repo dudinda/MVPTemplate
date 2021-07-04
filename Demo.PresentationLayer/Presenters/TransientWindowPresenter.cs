@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 using Demo.PresentationLayer.Code.Constants;
@@ -15,6 +16,13 @@ namespace Demo.PresentationLayer.Presenters
     internal sealed class TransientWindowPresenter : BasePresenter<ITransientFormView, TransientFormViewModel>,
         ISubscriber<TransientMsgEventArgs>
     {
+        private readonly EventLog _logger;
+
+        public TransientWindowPresenter(EventLog logger)
+        {
+            _logger = logger;
+        }
+
         public async Task OnEventHandler(object publisher, TransientMsgEventArgs e)
         {
             try
@@ -25,6 +33,7 @@ namespace Demo.PresentationLayer.Presenters
             catch (Exception ex)
             {
                 View.Tooltip(ex.Message);
+                _logger.WriteEntry(ex.Message, EventLogEntryType.Error);
             }
         }
     }
