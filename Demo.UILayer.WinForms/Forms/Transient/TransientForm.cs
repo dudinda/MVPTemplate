@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 
+using Demo.PresentationLayer.Presenters;
 using Demo.PresentationLayer.Views;
 using Demo.UILayer.WinForms.FormEventBinders.TransientForm.Interface;
 using Demo.UILayer.WinForms.FormExposers;
@@ -34,5 +35,22 @@ namespace Demo.UILayer.WinForms.Forms.Transient
         /// <inheritdoc/>
         public Button SendMessage
             => SendMessageBtn;
+
+        /// <summary>
+        /// Used by the generated <see cref="Dispose(bool)"/> call.
+        /// Can be used by a DI container in a singleton scope on Release();
+        public new void Dispose()
+        {
+            if (components != null)
+            {
+                components.Dispose();
+            }
+
+            Controller
+               .Aggregator
+               .Unsubscribe(typeof(TransientWindowPresenter), this);
+
+            base.Dispose(true);
+        }
     }
 }

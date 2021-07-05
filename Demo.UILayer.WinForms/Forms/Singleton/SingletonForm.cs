@@ -21,7 +21,13 @@ namespace Demo.UILayer.WinForms.Forms.Singleton
 
         public new void Show()
         {
-            IdLabel.Text += GetHashCode();
+            var hash = GetHashCode().ToString();
+
+            if(!IdLabel.Text.Contains(hash))
+            {
+                IdLabel.Text += hash;
+            }
+          
             MdiParent = Context.MainForm;
             base.Show();
         }
@@ -34,5 +40,27 @@ namespace Demo.UILayer.WinForms.Forms.Singleton
         /// <inheritdoc/>
         public Button SendMessage
             => SendMessageBtn;
+
+        /// <summary>
+        /// Used by a DI container to dispose the singleton form
+        /// on Release().
+        public new void Dispose()
+        {
+            if (components != null)
+            {
+                components.Dispose();
+            }
+
+            base.Dispose(true);
+        }
+
+        /// <summary>
+        /// Restrict the generated <see cref="Dispose(bool)"/> call
+        /// on a non-context form closing.
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            Hide();
+            e.Cancel = true;
+        }
     }
 }
