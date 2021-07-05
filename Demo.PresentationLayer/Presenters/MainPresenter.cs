@@ -22,6 +22,8 @@ namespace Demo.PresentationLayer.Presenters
         {
             _logger = logger;
         }
+
+        /// <inheritdoc cref="ShowTransientViewEventArgs"/>
         public async Task OnEventHandler(object publisher, ShowTransientViewEventArgs e)
         {
             try
@@ -36,6 +38,7 @@ namespace Demo.PresentationLayer.Presenters
             }
         }
 
+        /// <inheritdoc cref="ShowSingletonViewEventArgs"/>
         public async Task OnEventHandler(object publisher, ShowSingletonViewEventArgs e)
         {
             try
@@ -50,6 +53,7 @@ namespace Demo.PresentationLayer.Presenters
             }
         }
 
+        /// <inheritdoc cref="MsgEventArgs"/>
         public async Task OnEventHandler(object publisher, MsgEventArgs e)
         {
             try

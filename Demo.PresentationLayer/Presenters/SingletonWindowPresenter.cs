@@ -23,6 +23,7 @@ namespace Demo.PresentationLayer.Presenters
             _logger = logger;
         }
 
+        /// <inheritdoc cref="SingletonMsgEventArgs"/>
         public async Task OnEventHandler(object publisher, SingletonMsgEventArgs e)
         {
             try

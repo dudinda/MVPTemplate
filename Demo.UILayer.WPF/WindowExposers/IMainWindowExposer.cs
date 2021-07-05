@@ -1,16 +1,21 @@
 ﻿using System.Windows.Controls;
 
+using Demo.UILayer.WPF.Windows.Main;
+
 namespace Demo.UILayer.WPF.WindowExposers
 {
+    /// <summary>
+    /// Expose elements from the <see cref="MainWindow"/>.
+    /// </summary>
     public interface IMainWindowExposer
     {
         /// <summary>
-        /// Item to open transient menu.
+        /// Menu item to open a transient window.
         /// </summary>
         MenuItem TransientMenu { get; }
 
         /// <summary>
-        /// Item to open singleton menu.
+        /// Menu item to open a singleton window.
         /// </summary>
         MenuItem SingletonMenu { get; }
     }

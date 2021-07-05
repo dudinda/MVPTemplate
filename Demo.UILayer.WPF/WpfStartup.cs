@@ -6,6 +6,7 @@ using Demo.UILayer.WPF.WindowEventBinders.Singleton.Implementation;
 using Demo.UILayer.WPF.WindowEventBinders.Singleton.Interface;
 using Demo.UILayer.WPF.WindowEventBinders.Transient.Implementation;
 using Demo.UILayer.WPF.WindowEventBinders.Transient.Interface;
+using Demo.UILayer.WPF.Windows.Main;
 using Demo.UILayer.WPF.Windows.Singleton;
 using Demo.UILayer.WPF.Windows.Transient;
 

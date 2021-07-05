@@ -1,19 +1,22 @@
-﻿
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 using Demo.PresentationLayer.Views;
+using Demo.UILayer.WinForms.FormEventBinders.Main.Interface;
 using Demo.UILayer.WinForms.FormExposers;
-
-using ImageProcessing.App.UILayer.Forms;
 
 namespace Demo.UILayer.WinForms.Forms.Main
 {
     public partial class MainForm : BaseForm,
         IMainView, IMainFormExposer
     {
-        public MainForm()
+        private readonly IMainFormEventBinder _binder;
+
+        public MainForm(IMainFormEventBinder binder)
         {
             InitializeComponent();
+
+            _binder = binder;
+            _binder.OnElementExpose(this);
         }
 
         public new void Show()
@@ -24,7 +27,13 @@ namespace Demo.UILayer.WinForms.Forms.Main
 
         public void Tooltip(string msg)
         {
-            throw new System.NotImplementedException();
+            Message.Text = msg;
         }
+
+        public ToolStripMenuItem TransientMenu
+            => TransientMenuBtn;
+
+        public ToolStripMenuItem SingletonMenu
+            => SingletonFormBtn;
     }
 }

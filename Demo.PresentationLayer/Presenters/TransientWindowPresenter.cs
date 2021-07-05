@@ -23,6 +23,7 @@ namespace Demo.PresentationLayer.Presenters
             _logger = logger;
         }
 
+        /// <inheritdoc cref="TransientMsgEventArgs"/>
         public async Task OnEventHandler(object publisher, TransientMsgEventArgs e)
         {
             try

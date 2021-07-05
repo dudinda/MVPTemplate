@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Windows.Forms;
+
+using Demo.UILayer.WinForms.Forms.Transient;
 
 namespace Demo.UILayer.WinForms.FormExposers
 {
-    interface ITransientFormExposer
+    /// <summary>
+    /// Expose elements from the <see cref="TransientForm"/>.
+    /// </summary>
+    public interface ITransientFormExposer
     {
+        /// <summary>
+        /// Send a message from a transient form.
+        /// </summary>
+        Button SendMessage { get; }
     }
 }

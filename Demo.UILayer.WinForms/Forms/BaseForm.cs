@@ -6,13 +6,13 @@ using ImageProcessing.Microkernel.MVP.Controller.Implementation;
 using ImageProcessing.Microkernel.MVP.Controller.Interface;
 using ImageProcessing.Microkernel.MVP.View;
 
-namespace ImageProcessing.App.UILayer.Forms
+namespace Demo.UILayer.WinForms.Forms
 {
     /// <summary>
     /// Represents the base form with the contextual
     /// information about an application thread.
     /// </summary>
-    public abstract class BaseForm : Form, IView
+    public class BaseForm : Form, IView
     {
         private IAppController? _controller;
         private ApplicationContext? _context;

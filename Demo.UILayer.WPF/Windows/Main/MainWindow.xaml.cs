@@ -10,7 +10,7 @@ using Demo.UILayer.WPF.Windows;
 
 using ImageProcessing.Microkernel.EntryPoint;
 
-namespace Demo.UILayer.WPF
+namespace Demo.UILayer.WPF.Windows.Main
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
