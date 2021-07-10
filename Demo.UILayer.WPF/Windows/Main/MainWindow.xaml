@@ -4,15 +4,15 @@
                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                  xmlns:base="clr-namespace:Demo.UILayer.WPF.Windows"
+                 ResizeMode="NoResize"
                  mc:Ignorable="d"
-        Title="Demo" Height="450" Width="800">
-    <Grid>
-        <Menu Name="Menu" HorizontalAlignment="Left" Height="78" Margin="10,10,0,0" VerticalAlignment="Top" Width="772">
-            <MenuItem Header="Transient View" x:Name="Transient" FontSize="40" Width="380"/>
-            <MenuItem Header="Singleton View" x:Name="Singleton" FontSize="40" Width="380"/>
+        Title="Demo" Height="315.538" Width="800">
+    <Grid RenderTransformOrigin="0.129,0.385" Margin="0,0,0,4">
+        <Menu Name="Menu" HorizontalAlignment="Left" Height="62" Margin="10,10,0,0" VerticalAlignment="Top" Width="772">
+            <MenuItem Header="Transient View" x:Name="Transient" FontSize="40" Width="368" Height="62"/>
+            <MenuItem Header="Singleton View" x:Name="Singleton" FontSize="40" Width="369"/>
         </Menu>
-        <Label Content="Microkernel Demo" HorizontalAlignment="Center" FontSize="60" VerticalAlignment="Top" Width="520" Margin="131,185,141,0"/>
-        <Label Content="" x:Name="MessageLabel" HorizontalAlignment="Left" Margin="344,311,0,0" VerticalAlignment="Top"/>
-
+        <Label Content="Microkernel Demo" HorizontalAlignment="Center" FontSize="60" VerticalAlignment="Top" Width="520" Margin="123,98,151,0"/>
+        <Label Content="" x:Name="MessageLabel" FontSize="50" HorizontalAlignment="Left" Margin="10,188,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.034,-0.013"/>
     </Grid>
 </base:BaseWindow>

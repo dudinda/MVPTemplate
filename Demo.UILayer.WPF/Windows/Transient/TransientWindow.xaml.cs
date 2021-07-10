@@ -22,6 +22,13 @@ namespace Demo.UILayer.WPF.Windows.Transient
             _binder.OnElementExpose(this);
         }
 
+        public new void Show()
+        {
+            Header.Content += GetHashCode().ToString();
+
+            base.Show();
+        }
+
         public Button Message
             => SendMessage;
 

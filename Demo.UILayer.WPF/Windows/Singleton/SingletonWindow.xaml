@@ -5,9 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:base="clr-namespace:Demo.UILayer.WPF.Windows"
         mc:Ignorable="d"
-        Title="SingletonWindow" Height="450" Width="800">
+        ResizeMode="NoResize"
+        Title="Singleton" Height="300.000" Width="600.000">
     <Grid>
-        <Button x:Name="SendMessage" Content="Send Message &#xD;&#xA;" FontSize="55" HorizontalAlignment="Left" Margin="150,231,0,0" VerticalAlignment="Top" Width="468" Height="101"/>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="423*"/>
+            <ColumnDefinition Width="29*"/>
+            <ColumnDefinition Width="155*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="SendMessage" Content="Send Message &#xD;&#xA;" FontSize="30" HorizontalAlignment="Left" Margin="152,145,0,0" VerticalAlignment="Top" Width="308" Height="101" RenderTransformOrigin="0.429,0.408" Grid.ColumnSpan="3"/>
+        <Label Content="Singleton Window: " x:Name="Header"  HorizontalAlignment="Center" FontSize="30" VerticalAlignment="Top" Width="520" Margin="10,10,64,0" Grid.ColumnSpan="3"/>
     </Grid>
 </base:BaseWindow>

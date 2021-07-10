@@ -23,6 +23,19 @@ namespace Demo.UILayer.WPF.Windows.Singleton
             _binder.OnElementExpose(this);
         }
 
+        public new void Show()
+        {
+            var hash = GetHashCode().ToString();
+            var header = (string)Header.Content;
+
+            if (!header.Contains(hash))
+            {
+                Header.Content += hash;
+            }
+
+            base.Show();
+        }
+
         public Button Message
             => SendMessage;
 
