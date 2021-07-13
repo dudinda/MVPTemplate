@@ -10,6 +10,9 @@ namespace Demo.UILayer.ConsoleApp.Code.Enums
         ShowTransient = 1,
 
         [Description("show_singleton")]
-        ShowSingleton = 2
+        ShowSingleton = 2,
+
+        [Description("exit")]
+        ExitMain      = 3,
     }
 }

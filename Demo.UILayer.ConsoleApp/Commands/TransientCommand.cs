@@ -4,7 +4,7 @@ using Demo.PresentationLayer.Views;
 
 namespace Demo.UILayer.ConsoleApp.Commands
 {
-    class TransientCommand : ITransientFormView
+    public class TransientCommand : ITransientFormView
     {
         public void Close()
         {
@@ -18,7 +18,7 @@ namespace Demo.UILayer.ConsoleApp.Commands
 
         public void Show()
         {
-            Console.WriteLine("Transient command is running...");
+            Console.WriteLine("Message from the transient command.");
         }
 
         public void Tooltip(string msg)

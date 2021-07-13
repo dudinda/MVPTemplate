@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 
 using Demo.PresentationLayer.Views;
 using Demo.UILayer.ConsoleApp.Code.Enums;
@@ -12,12 +11,10 @@ namespace Demo.UILayer.ConsoleApp.Commands
     {
         private readonly IMainCommandEventBinder _binder;
 
-        private bool _IsRunning;
+        private bool _isRunning;
 
-        public event Action ShowTransientCommand;
-        public event Action ShowSingletonCommand;
-
-        public MainCommand(IMainCommandEventBinder binder)
+        public MainCommand(
+            IMainCommandEventBinder binder)
         {
             _binder = binder;
             _binder.Bind(this);
@@ -25,7 +22,7 @@ namespace Demo.UILayer.ConsoleApp.Commands
 
         public void Close()
         {
-            _IsRunning = false;
+            _isRunning = false;
         }
 
         public bool Focus()
@@ -35,16 +32,17 @@ namespace Demo.UILayer.ConsoleApp.Commands
 
         public void Show()
         {
-            _IsRunning = true;
             Console.WriteLine("Main command is running...");
 
-            while(_IsRunning)
+            _isRunning = true;
+
+            while(_isRunning)
             {
                 var input = Console.ReadLine();
 
                 try
                 {
-                    _binder.ProcessCmd(input.GetValueFromDescription<MainCmd>());
+                    _isRunning = _binder.ProcessCmd(input.GetValueFromDescription<MainCmd>());
                 }
                 catch(ArgumentException ex)
                 {

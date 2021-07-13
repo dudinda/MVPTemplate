@@ -24,7 +24,7 @@ namespace Demo.UILayer.ConsoleApp.Commands
 
         public void Show()
         {
-            Console.WriteLine("Singleton command is running...");
+            Console.WriteLine("Message from the singleton command.");
         }
 
         public void Tooltip(string msg)

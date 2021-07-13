@@ -14,7 +14,7 @@ namespace Demo.UILayer.ConsoleApp
         public void Build(IComponentProvider builder)
         {
             builder
-                .RegisterSingleton<IMainView, MainCommand>()
+                .RegisterTransient<IMainView, MainCommand>()
                 .RegisterSingleton<ISingletonFormView, SingletonCommand>()
                 .RegisterTransient<ITransientFormView, TransientCommand>()
                 .RegisterTransient<IMainCommandEventBinder, MainCommandEventBinder>();

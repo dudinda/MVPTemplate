@@ -33,9 +33,11 @@ namespace Demo.UILayer.ConsoleApp.CommandEventBinders.Main.Implementation
             {
                 case MainCmd.ShowSingleton:
                     _showSingletonCommand?.Invoke();
-                    return false;
+                    return true;
                 case MainCmd.ShowTransient:
                     _showTransientCommand?.Invoke();
+                    return true;
+                case MainCmd.ExitMain:
                     return false;
 
                 default: return true;
