@@ -17,6 +17,6 @@
 <p align="center">
     <img src="https://i.imgur.com/aPJppc0.png" width="900" height = "500" alt="application window">
     <p align="center">Fig. 3 - The console window started with the main command then the singleton command is now a foreground thread. There is no synchronization context
-and each message from the view propagates callback to the thread pool.</p>
+and each message from the view propagates a callback to the thread pool.</p>
 </p>
 
