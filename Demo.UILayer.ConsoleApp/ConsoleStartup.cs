@@ -1,0 +1,21 @@
+﻿using System;
+
+using Demo.PresentationLayer.Views;
+using Demo.UILayer.ConsoleApp.Commands;
+
+using ImageProcessing.Microkernel.AppConfig;
+using ImageProcessing.Microkernel.MVP.IoC.Interface;
+
+namespace Demo.UILayer.ConsoleApp
+{
+    public class ConsoleStartup : IStartup
+    {
+        public void Build(IComponentProvider builder)
+        {
+            builder
+                .RegisterSingleton<IMainView, MainCommand>()
+                .RegisterSingleton<ISingletonFormView, SingletonCommand>()
+                .RegisterTransient<ITransientFormView, TransientCommand>();
+        }
+    }
+}
