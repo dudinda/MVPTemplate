@@ -1,29 +1,69 @@
 ﻿using System;
+using System.Threading;
 
 using Demo.PresentationLayer.Views;
+using Demo.UILayer.ConsoleApp.Code.Enums;
+using Demo.UILayer.ConsoleApp.Code.Extensions;
+using Demo.UILayer.ConsoleApp.CommandEventBinders.Transient.Interface;
+using Demo.UILayer.ConsoleApp.Services.ResetEvent.Interface;
 
 namespace Demo.UILayer.ConsoleApp.Commands
 {
-    public class TransientCommand : ITransientFormView
+    internal sealed class TransientCommand : ITransientFormView
     {
+        private readonly IResetEventService _service;
+        private readonly ITransientCommandEventBinder _binder;
+
+        private bool _isRunning;
+
+        public TransientCommand(
+            ITransientCommandEventBinder binder,
+            IResetEventService service)
+        {
+            _binder = binder;
+            _service = service;
+
+            _binder.Bind(this);
+        }
+
+
         public void Close()
         {
-            throw new NotImplementedException();
+            _isRunning = false;
+            Thread.CurrentThread.IsBackground = true;
         }
 
         public bool Focus()
         {
-            throw new NotImplementedException();
+            return !(Thread.CurrentThread.IsBackground = false);
         }
 
         public void Show()
         {
-            Console.WriteLine("Message from the transient command.");
+            Console.WriteLine("Starting the transient command...");
+
+            _isRunning = Focus();
+
+            while (_isRunning)
+            {
+                _service.PulseAll();
+
+                var input = Console.ReadLine();
+
+                try
+                {
+                    _isRunning = _binder.ProcessCmd(input.GetValueFromDescription<TransientCmd>());
+                }
+                catch (ArgumentException ex)
+                {
+                    Console.WriteLine($"Command {input} is not found.");
+                }
+            }
         }
 
         public void Tooltip(string msg)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(msg);
         }
     }
 }

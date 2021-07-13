@@ -1,30 +1,69 @@
 ﻿
 using System;
+using System.Threading;
 
 using Demo.PresentationLayer.Views;
+using Demo.UILayer.ConsoleApp.Code.Enums;
+using Demo.UILayer.ConsoleApp.Code.Extensions;
+using Demo.UILayer.ConsoleApp.CommandEventBinders.Singleton.Interface;
+using Demo.UILayer.ConsoleApp.Services.ResetEvent.Interface;
 
 namespace Demo.UILayer.ConsoleApp.Commands
 {
-    public class SingletonCommand : ISingletonFormView
+    internal sealed class SingletonCommand : ISingletonFormView
     {
+        private readonly IResetEventService _service;
+        private readonly ISingletonCommandEventBinder _binder;
+
+        private bool _isRunning;
+
+        public SingletonCommand(
+            ISingletonCommandEventBinder binder,
+            IResetEventService service)
+        {
+            _binder = binder;
+            _service = service;
+
+            _binder.Bind(this);
+        }
+
         public void Close()
         {
-            throw new System.NotImplementedException();
+            _isRunning = false;
+            Thread.CurrentThread.IsBackground = true;
         }
 
         public void Dispose()
         {
-            throw new System.NotImplementedException();
+            Close();
         }
 
         public bool Focus()
         {
-            throw new System.NotImplementedException();
+            return !(Thread.CurrentThread.IsBackground = false);
         }
 
         public void Show()
         {
-            Console.WriteLine("Message from the singleton command.");
+            Console.WriteLine("Starting the singleton command...");
+            
+            _isRunning = Focus();
+
+            while(_isRunning)
+            {
+                _service.PulseAll();
+                
+                var input = Console.ReadLine();
+
+                try
+                {
+                    _isRunning = _binder.ProcessCmd(input.GetValueFromDescription<SingletonCmd>());
+                }
+                catch(ArgumentException ex)
+                {
+                    Console.WriteLine($"Command {input} is not found.");
+                }
+            }
         }
 
         public void Tooltip(string msg)

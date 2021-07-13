@@ -40,7 +40,7 @@ namespace Demo.UILayer.ConsoleApp.CommandEventBinders.Main.Implementation
                 case MainCmd.ExitMain:
                     return false;
 
-                default: return true;
+                default: return false;
             }
         }
     }

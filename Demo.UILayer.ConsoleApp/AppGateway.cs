@@ -7,9 +7,9 @@ using ImageProcessing.Microkernel.EntryPoint;
 
 namespace Demo.UILayer.ConsoleApp
 {
-    class Program
+    internal sealed class AppGateway
     {
-        static void Main(string[] args)
+        internal static void Main(string[] args)
         {
             try
             {
