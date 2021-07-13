@@ -15,7 +15,7 @@
 </br>  
 </br>    
 <p align="center">
-    <img src="https://i.imgur.com/wilTFJz.png" width="900" height = "500" alt="application window">
-    <p align="center">Fig. 3 - The console window where the main, singleton and transient commands are executed.</p>
+    <img src="https://i.imgur.com/aPJppc0.png" width="900" height = "500" alt="application window">
+    <p align="center">Fig. 3 - The console window started with the main command then the singleton command is now a foreground thread.</p>
 </p>
 
