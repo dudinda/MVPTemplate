@@ -1,6 +1,7 @@
-﻿using System;
-
+﻿
 using Demo.PresentationLayer.Views;
+using Demo.UILayer.ConsoleApp.CommandEventBinders.Main.Implementation;
+using Demo.UILayer.ConsoleApp.CommandEventBinders.Main.Interface;
 using Demo.UILayer.ConsoleApp.Commands;
 
 using ImageProcessing.Microkernel.AppConfig;
@@ -15,7 +16,8 @@ namespace Demo.UILayer.ConsoleApp
             builder
                 .RegisterSingleton<IMainView, MainCommand>()
                 .RegisterSingleton<ISingletonFormView, SingletonCommand>()
-                .RegisterTransient<ITransientFormView, TransientCommand>();
+                .RegisterTransient<ITransientFormView, TransientCommand>()
+                .RegisterTransient<IMainCommandEventBinder, MainCommandEventBinder>();
         }
     }
 }

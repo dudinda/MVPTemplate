@@ -18,7 +18,7 @@ namespace Demo.UILayer.ConsoleApp.Commands
 
         public void Show()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Transient command is running...");
         }
 
         public void Tooltip(string msg)

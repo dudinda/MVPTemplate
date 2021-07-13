@@ -1,4 +1,6 @@
 ﻿
+using System;
+
 using Demo.PresentationLayer.Views;
 
 namespace Demo.UILayer.ConsoleApp.Commands
@@ -22,7 +24,7 @@ namespace Demo.UILayer.ConsoleApp.Commands
 
         public void Show()
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine("Singleton command is running...");
         }
 
         public void Tooltip(string msg)

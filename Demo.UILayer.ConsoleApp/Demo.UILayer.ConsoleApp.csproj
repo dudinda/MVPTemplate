@@ -10,10 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Code\Extensions\" />
     <Folder Include="Code\Constants\" />
-    <Folder Include="CommandExposers\" />
-    <Folder Include="CommandEventBinders\" />
   </ItemGroup>
 
 </Project>
