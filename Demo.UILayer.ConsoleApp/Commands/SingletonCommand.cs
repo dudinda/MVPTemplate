@@ -68,7 +68,7 @@ namespace Demo.UILayer.ConsoleApp.Commands
 
         public void Tooltip(string msg)
         {
-            throw new System.NotImplementedException();
+            Console.WriteLine(msg);
         }
     }
 }
