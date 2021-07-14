@@ -1,5 +1,4 @@
-﻿
-using Demo.PresentationLayer.Views;
+﻿using Demo.PresentationLayer.Views;
 using Demo.UILayer.ConsoleApp.CommandEventBinders.Main.Implementation;
 using Demo.UILayer.ConsoleApp.CommandEventBinders.Main.Interface;
 using Demo.UILayer.ConsoleApp.CommandEventBinders.Singleton.Implementation;

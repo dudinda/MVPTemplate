@@ -1,5 +1,4 @@
-﻿
-using Demo.PresentationLayer.Views;
+﻿using Demo.PresentationLayer.Views;
 using Demo.UILayer.ConsoleApp.Code.Enums;
 
 namespace Demo.UILayer.ConsoleApp.CommandEventBinders.Transient.Interface
