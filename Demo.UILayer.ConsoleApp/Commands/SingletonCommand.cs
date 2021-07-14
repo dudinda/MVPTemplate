@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Threading;
 
+using Demo.PresentationLayer.Presenters;
 using Demo.PresentationLayer.Views;
 using Demo.UILayer.ConsoleApp.Code.Enums;
 using Demo.UILayer.ConsoleApp.Code.Extensions;
 using Demo.UILayer.ConsoleApp.CommandEventBinders.Singleton.Interface;
 using Demo.UILayer.ConsoleApp.Services.Pulse.Interface;
+
+using ImageProcessing.Microkernel.MVP.Controller.Implementation;
 
 namespace Demo.UILayer.ConsoleApp.Commands
 {
@@ -28,8 +31,10 @@ namespace Demo.UILayer.ConsoleApp.Commands
 
         public void Close()
         {
-            _isRunning = false;
             Thread.CurrentThread.IsBackground = true;
+
+            AppController.Controller.Aggregator
+               .Unsubscribe(typeof(SingletonWindowPresenter), this);
         }
 
         public void Dispose()
@@ -57,6 +62,11 @@ namespace Demo.UILayer.ConsoleApp.Commands
                 try
                 {
                     _isRunning = _binder.ProcessCmd(input.GetValueFromDescription<SingletonCmd>());
+
+                    if (!_isRunning)
+                    {
+                        Close();
+                    }
                 }
                 catch(ArgumentException ex)
                 {

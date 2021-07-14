@@ -32,11 +32,11 @@ namespace Demo.UILayer.ConsoleApp.CommandEventBinders.Singleton.Implementation
                 case SingletonCmd.SendMessage:
                     _sendMessageCommand?.Invoke();
                     return true;
-                case SingletonCmd.Exit:
-                    Environment.Exit(0);
-                    return true;
 
-                default: return false;
+                case SingletonCmd.Exit:
+                    return false;
+
+                default: return true;
             }
         }
     }

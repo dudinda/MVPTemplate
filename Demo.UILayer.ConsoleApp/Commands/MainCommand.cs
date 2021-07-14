@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Threading;
 
+using Demo.PresentationLayer.Presenters;
 using Demo.PresentationLayer.Views;
 using Demo.UILayer.ConsoleApp.Code.Enums;
 using Demo.UILayer.ConsoleApp.Code.Extensions;
 using Demo.UILayer.ConsoleApp.CommandEventBinders.Main.Interface;
 using Demo.UILayer.ConsoleApp.Services.Pulse.Interface;
+
+using ImageProcessing.Microkernel.MVP.Controller.Implementation;
 
 namespace Demo.UILayer.ConsoleApp.Commands
 {
@@ -28,8 +31,10 @@ namespace Demo.UILayer.ConsoleApp.Commands
 
         public void Close()
         {
-            _isRunning = false;
             Thread.CurrentThread.IsBackground = true;
+
+            AppController.Controller.Aggregator
+                .Unsubscribe(typeof(MainPresenter), this);
         }
 
         public bool Focus()
@@ -41,7 +46,7 @@ namespace Demo.UILayer.ConsoleApp.Commands
         {
             Console.WriteLine("Main command is running...");
 
-            _isRunning = true;
+            _isRunning = Focus();
 
             while(_isRunning)
             {
@@ -52,7 +57,7 @@ namespace Demo.UILayer.ConsoleApp.Commands
                 {
                     _isRunning = _binder.ProcessCmd(input.GetValueFromDescription<MainCmd>());
                     
-                    if(_isRunning)
+                    if(!_isRunning)
                     {
                         _service.Wait();
                         Close();

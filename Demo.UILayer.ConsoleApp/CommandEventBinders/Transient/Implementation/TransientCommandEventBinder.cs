@@ -31,12 +31,12 @@ namespace Demo.UILayer.ConsoleApp.CommandEventBinders.Transient.Implementation
             {
                 case TransientCmd.SendMessage:
                     _sendMessageCommand?.Invoke();
-                return true;
-                case TransientCmd.Exit:
-                    Environment.Exit(0);
-                return true;
+                    return true;
 
-                default: return false;
+                case TransientCmd.Exit:
+                    return false;
+
+                default: return true;
             }
         }
     }

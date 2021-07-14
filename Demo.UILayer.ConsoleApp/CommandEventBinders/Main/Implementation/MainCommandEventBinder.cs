@@ -33,14 +33,17 @@ namespace Demo.UILayer.ConsoleApp.CommandEventBinders.Main.Implementation
             {
                 case MainCmd.ShowSingleton:
                     _showSingletonCommand?.Invoke();
-                    return true;
-                case MainCmd.ShowTransient:
-                    _showTransientCommand?.Invoke();
-                    return true;
-                case MainCmd.ExitMain:
                     return false;
 
-                default: return false;
+                case MainCmd.ShowTransient:
+                    _showTransientCommand?.Invoke();
+                    return false;
+
+                case MainCmd.ExitMain:
+                    Environment.Exit(0);
+                    return false;
+
+                default: return true;
             }
         }
     }
