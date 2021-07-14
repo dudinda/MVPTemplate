@@ -1,14 +1,15 @@
 ﻿using System.Threading;
 
-using Demo.UILayer.ConsoleApp.Services.ResetEvent.Interface;
+using Demo.UILayer.ConsoleApp.Services.Pulse.Interface;
 
-namespace Demo.UILayer.ConsoleApp.Services.ResetEvent.Implementation
+namespace Demo.UILayer.ConsoleApp.Services.Pulse.Implementation
 {
-    internal class ResetEventService : IResetEventService
+    /// <inheritdoc/>
+    internal class PulseService : IPulseService
     {
-
         private readonly object _lock = new object();
 
+        /// <inheritdoc/>
         public void PulseAll()
         {
             lock (_lock)
@@ -17,6 +18,7 @@ namespace Demo.UILayer.ConsoleApp.Services.ResetEvent.Implementation
             }
         }
 
+        /// <inheritdoc/>
         public void Pulse()
         {
             lock (_lock)
@@ -25,11 +27,13 @@ namespace Demo.UILayer.ConsoleApp.Services.ResetEvent.Implementation
             }
         }
 
+        /// <inheritdoc/>
         public void Wait()
         {
             Wait(Timeout.Infinite);
         }
 
+        /// <inheritdoc/>
         public bool Wait(int timeoutMilliseconds)
         {
             lock (_lock)

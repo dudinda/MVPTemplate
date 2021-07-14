@@ -7,8 +7,8 @@ using Demo.UILayer.ConsoleApp.CommandEventBinders.Singleton.Interface;
 using Demo.UILayer.ConsoleApp.CommandEventBinders.Transient.Implementation;
 using Demo.UILayer.ConsoleApp.CommandEventBinders.Transient.Interface;
 using Demo.UILayer.ConsoleApp.Commands;
-using Demo.UILayer.ConsoleApp.Services.ResetEvent.Implementation;
-using Demo.UILayer.ConsoleApp.Services.ResetEvent.Interface;
+using Demo.UILayer.ConsoleApp.Services.Pulse.Implementation;
+using Demo.UILayer.ConsoleApp.Services.Pulse.Interface;
 
 using ImageProcessing.Microkernel.AppConfig;
 using ImageProcessing.Microkernel.MVP.IoC.Interface;
@@ -22,7 +22,7 @@ namespace Demo.UILayer.ConsoleApp
             builder
                 .RegisterTransient<IMainView, MainCommand>()
                 .RegisterSingleton<ISingletonFormView, SingletonCommand>()
-                .RegisterSingleton<IResetEventService, ResetEventService>()
+                .RegisterSingleton<IPulseService, PulseService>()
                 .RegisterTransient<ITransientFormView, TransientCommand>()
                 .RegisterTransient<IMainCommandEventBinder, MainCommandEventBinder>()
                 .RegisterTransient<ITransientCommandEventBinder, TransientCommandEventBinder>()

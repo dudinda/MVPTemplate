@@ -5,20 +5,20 @@ using Demo.PresentationLayer.Views;
 using Demo.UILayer.ConsoleApp.Code.Enums;
 using Demo.UILayer.ConsoleApp.Code.Extensions;
 using Demo.UILayer.ConsoleApp.CommandEventBinders.Main.Interface;
-using Demo.UILayer.ConsoleApp.Services.ResetEvent.Interface;
+using Demo.UILayer.ConsoleApp.Services.Pulse.Interface;
 
 namespace Demo.UILayer.ConsoleApp.Commands
 {
     internal sealed class MainCommand : IMainView
     {
         private readonly IMainCommandEventBinder _binder;
-        private readonly IResetEventService _service;
+        private readonly IPulseService _service;
 
         private bool _isRunning;
 
         public MainCommand(
             IMainCommandEventBinder binder,
-            IResetEventService service)
+            IPulseService service)
         {
             _binder = binder;
             _service = service;
