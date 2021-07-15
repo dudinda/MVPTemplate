@@ -1,4 +1,4 @@
-# MVP Template using Microkernel
+# MVP Template using the Microkernel
 
 <p>The original repository https://github.com/dudinda/Image-Processing.</p>
 
