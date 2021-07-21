@@ -16,6 +16,6 @@
 </br>    
 <p align="center">
     <img src="https://i.imgur.com/aPJppc0.png" width="900" height = "500" alt="application window">
-    <p align="center">Fig. 3 - The console window is started with the main command and then the singleton command is switched to a foreground thread. By default, there is no synchronization context and the event aggregator sets it to SynchronizationContext with the continuation on the thread pool. To continue on the original pool a synchronization context with the blocking queue may be introduced and set up after Applifecycle.Build<TStartup>()</p>
+    <p align="center">Fig. 3 - The console window is started with the main command and then the singleton command is switched to a foreground thread. By default, there is no synchronization context and the event aggregator sets it to SynchronizationContext with the continuation on the thread pool. To continue on the original thread a synchronization context with the blocking queue may be introduced and set up after Applifecycle.Build<TStartup>()</p>
 </p>
 
