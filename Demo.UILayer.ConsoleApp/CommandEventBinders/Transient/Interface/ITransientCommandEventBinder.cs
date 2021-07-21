@@ -6,6 +6,6 @@ namespace Demo.UILayer.ConsoleApp.CommandEventBinders.Transient.Interface
     internal interface ITransientCommandEventBinder
     {
         void Bind(ITransientFormView view);
-        bool ProcessCmd(TransientCmd command);
+        bool ProcessCmd(TransientCmd command, params string[] args);
     }
 }

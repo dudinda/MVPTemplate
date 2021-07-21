@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 
 using Demo.PresentationLayer.Presenters;
 using Demo.PresentationLayer.Views;
+using Demo.UILayer.ConsoleApp.Code.Constants;
 using Demo.UILayer.ConsoleApp.Code.Enums;
 using Demo.UILayer.ConsoleApp.Code.Extensions;
 using Demo.UILayer.ConsoleApp.CommandEventBinders.Transient.Interface;
@@ -32,6 +34,8 @@ namespace Demo.UILayer.ConsoleApp.Commands
 
         public void Close()
         {
+            Console.WriteLine("Closing the transient command...");
+
             Thread.CurrentThread.IsBackground = true;
 
             AppController.Controller.Aggregator
@@ -49,15 +53,22 @@ namespace Demo.UILayer.ConsoleApp.Commands
 
             _isRunning = Focus();
 
+            _service.PulseAll();
+
             while (_isRunning)
             {
-                _service.PulseAll();
-
                 var input = Console.ReadLine();
 
                 try
                 {
-                    _isRunning = _binder.ProcessCmd(input.GetValueFromDescription<TransientCmd>());
+                    var args = input.Trim().Split(' ');
+
+                    if (!args.Any())
+                    {
+                        throw new ArgumentException(Errors.CmdNotFound);
+                    }
+
+                    _isRunning = _binder.ProcessCmd(args[0].GetValueFromDescription<TransientCmd>());
 
                     if(!_isRunning)
                     {

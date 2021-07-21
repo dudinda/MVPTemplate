@@ -27,7 +27,7 @@ namespace Demo.UILayer.ConsoleApp.CommandEventBinders.Main.Implementation
             _showTransientCommand += () => _aggregator.PublishFrom(view, new ShowTransientViewEventArgs());
         }
 
-        public bool ProcessCmd(MainCmd command)
+        public bool ProcessCmd(MainCmd command, params string[] args)
         {
             switch(command)
             {

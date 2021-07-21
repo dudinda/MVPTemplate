@@ -25,7 +25,7 @@ namespace Demo.UILayer.ConsoleApp.CommandEventBinders.Singleton.Implementation
             _sendMessageCommand += () => _aggregator.PublishFrom(view, new SingletonMsgEventArgs());
         }
 
-        public bool ProcessCmd(SingletonCmd command)
+        public bool ProcessCmd(SingletonCmd command, params string[] args)
         {
             switch (command)
             {

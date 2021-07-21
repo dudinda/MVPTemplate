@@ -1,14 +1,13 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 
-using Demo.PresentationLayer.Presenters;
 using Demo.PresentationLayer.Views;
+using Demo.UILayer.ConsoleApp.Code.Constants;
 using Demo.UILayer.ConsoleApp.Code.Enums;
 using Demo.UILayer.ConsoleApp.Code.Extensions;
 using Demo.UILayer.ConsoleApp.CommandEventBinders.Main.Interface;
 using Demo.UILayer.ConsoleApp.Services.Pulse.Interface;
-
-using ImageProcessing.Microkernel.MVP.Controller.Implementation;
 
 namespace Demo.UILayer.ConsoleApp.Commands
 {
@@ -31,10 +30,9 @@ namespace Demo.UILayer.ConsoleApp.Commands
 
         public void Close()
         {
-            Thread.CurrentThread.IsBackground = true;
+            Console.WriteLine("Closing the main command...");
 
-            AppController.Controller.Aggregator
-                .Unsubscribe(typeof(MainPresenter), this);
+            Thread.CurrentThread.IsBackground = true;
         }
 
         public bool Focus()
@@ -55,7 +53,14 @@ namespace Demo.UILayer.ConsoleApp.Commands
 
                 try
                 {
-                    _isRunning = _binder.ProcessCmd(input.GetValueFromDescription<MainCmd>());
+                    var args = input.Trim().Split(' ');
+
+                    if(!args.Any())
+                    {
+                        throw new ArgumentException(Errors.CmdNotFound);
+                    } 
+
+                    _isRunning = _binder.ProcessCmd(args[0].GetValueFromDescription<MainCmd>());
                     
                     if(!_isRunning)
                     {

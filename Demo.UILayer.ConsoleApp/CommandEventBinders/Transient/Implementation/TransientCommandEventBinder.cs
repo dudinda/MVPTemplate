@@ -25,7 +25,7 @@ namespace Demo.UILayer.ConsoleApp.CommandEventBinders.Transient.Implementation
             _sendMessageCommand += () => _aggregator.PublishFrom(view, new TransientMsgEventArgs());
         }
 
-        public bool ProcessCmd(TransientCmd command)
+        public bool ProcessCmd(TransientCmd command, params string[] args)
         {
             switch(command)
             {

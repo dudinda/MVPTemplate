@@ -6,6 +6,6 @@ namespace Demo.UILayer.ConsoleApp.CommandEventBinders.Main.Interface
     public interface IMainCommandEventBinder
     {
         void Bind(IMainView view);
-        bool ProcessCmd(MainCmd command);
+        bool ProcessCmd(MainCmd command, params string[] args);
     }
 }

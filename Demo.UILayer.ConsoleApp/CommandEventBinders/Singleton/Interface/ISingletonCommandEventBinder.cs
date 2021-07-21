@@ -6,6 +6,6 @@ namespace Demo.UILayer.ConsoleApp.CommandEventBinders.Singleton.Interface
     public interface ISingletonCommandEventBinder
     {
         void Bind(ISingletonFormView view);
-        bool ProcessCmd(SingletonCmd command);
+        bool ProcessCmd(SingletonCmd command, params string[] args);
     }
 }
