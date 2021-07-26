@@ -1,4 +1,5 @@
-﻿using Demo.PresentationLayer.Views;
+﻿using Demo.PresentationLayer;
+using Demo.PresentationLayer.Views;
 using Demo.UILayer.ConsoleApp.CommandEventBinders.Main.Implementation;
 using Demo.UILayer.ConsoleApp.CommandEventBinders.Main.Interface;
 using Demo.UILayer.ConsoleApp.CommandEventBinders.Singleton.Implementation;
@@ -18,6 +19,8 @@ namespace Demo.UILayer.ConsoleApp
     {
         public void Build(IComponentProvider builder)
         {
+            new Startup().Build(builder);
+
             builder
                 .RegisterTransient<IMainView, MainCommand>()
                 .RegisterSingleton<ISingletonFormView, SingletonCommand>()
