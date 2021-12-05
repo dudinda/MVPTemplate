@@ -8,9 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ImageProcessing.Microkernel.EntryPoint" Version="1.0.2">
-      <Private>True</Private>
-    </PackageReference>
+    <PackageReference Include="ImageProcessing.Microkernel.EntryPoint" Version="1.0.2" />
     <PackageReference Include="System.Diagnostics.EventLog" Version="5.0.1" />
   </ItemGroup>
 
@@ -19,13 +17,19 @@
       <_Parameter1>Demo.Integration</_Parameter1>
     </AssemblyAttribute>
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
-      <_Parameter1>Demo.UILayer.WinForms</_Parameter1>
+      <_Parameter1>Demo.UILayer.WinForms.SDI</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>Demo.UILayer.WinForms.MDI</_Parameter1>
     </AssemblyAttribute>
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
       <_Parameter1>Demo.UILayer.ConsoleApp</_Parameter1>
     </AssemblyAttribute>
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
-      <_Parameter1>Demo.UILayer.WPF</_Parameter1>
+      <_Parameter1>Demo.UILayer.WPF.SDI</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>Demo.UILayer.BlazorApp</_Parameter1>
     </AssemblyAttribute>
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
       <_Parameter1>DynamicProxyGenAssembly2</_Parameter1>

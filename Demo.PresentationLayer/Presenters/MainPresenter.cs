@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Threading.Tasks;
 
+using Demo.PresentationLayer.DomainEvents.Common;
 using Demo.PresentationLayer.DomainEvents.Main;
 using Demo.PresentationLayer.ViewModels;
 using Demo.PresentationLayer.Views;
@@ -14,7 +15,8 @@ namespace Demo.PresentationLayer.Presenters
     public class MainPresenter : BasePresenter<IMainView>,
         ISubscriber<ShowSingletonViewEventArgs>,
         ISubscriber<ShowTransientViewEventArgs>,
-        ISubscriber<MsgEventArgs>
+        ISubscriber<MsgEventArgs>,
+        ISubscriber<CloseEventArgs>
     {
         private readonly EventLog _logger;
 
@@ -24,7 +26,7 @@ namespace Demo.PresentationLayer.Presenters
         }
 
         /// <inheritdoc cref="ShowTransientViewEventArgs"/>
-        public async Task OnEventHandler(object publisher, ShowTransientViewEventArgs e)
+        public Task OnEventHandler(object publisher, ShowTransientViewEventArgs e)
         {
             try
             {
@@ -36,10 +38,12 @@ namespace Demo.PresentationLayer.Presenters
                 View.Tooltip(ex.Message);
                 _logger.WriteEntry(ex.Message, EventLogEntryType.Error);
             }
+
+            return Task.CompletedTask;
         }
 
         /// <inheritdoc cref="ShowSingletonViewEventArgs"/>
-        public async Task OnEventHandler(object publisher, ShowSingletonViewEventArgs e)
+        public Task OnEventHandler(object publisher, ShowSingletonViewEventArgs e)
         {
             try
             {
@@ -51,10 +55,12 @@ namespace Demo.PresentationLayer.Presenters
                 View.Tooltip(ex.Message);
                 _logger.WriteEntry(ex.Message, EventLogEntryType.Error);
             }
+
+            return Task.CompletedTask;
         }
 
         /// <inheritdoc cref="MsgEventArgs"/>
-        public async Task OnEventHandler(object publisher, MsgEventArgs e)
+        public Task OnEventHandler(object publisher, MsgEventArgs e)
         {
             try
             {
@@ -65,6 +71,22 @@ namespace Demo.PresentationLayer.Presenters
                 View.Tooltip(ex.Message);
                 _logger.WriteEntry(ex.Message, EventLogEntryType.Error);
             }
+
+            return Task.CompletedTask;
+        }
+
+        public Task OnEventHandler(object publisher, CloseEventArgs e)
+        {
+            try
+            {
+                View.Close();
+            }
+            catch(Exception ex)
+            {
+                _logger.WriteEntry(ex.Message, EventLogEntryType.Error);
+            }
+
+            return Task.CompletedTask;
         }
     }
 }

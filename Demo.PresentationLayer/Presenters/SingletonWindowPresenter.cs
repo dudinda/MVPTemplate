@@ -24,7 +24,7 @@ namespace Demo.PresentationLayer.Presenters
         }
 
         /// <inheritdoc cref="SingletonMsgEventArgs"/>
-        public async Task OnEventHandler(object publisher, SingletonMsgEventArgs e)
+        public Task OnEventHandler(object publisher, SingletonMsgEventArgs e)
         {
             try
             {
@@ -36,6 +36,8 @@ namespace Demo.PresentationLayer.Presenters
                 View.Tooltip(ex.Message);
                 _logger.WriteEntry(ex.Message, EventLogEntryType.Error);
             }
+
+            return Task.CompletedTask;
         }
     }
 }
