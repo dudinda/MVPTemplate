@@ -1,5 +1,4 @@
-﻿
-using Demo.PresentationLayer;
+﻿using Demo.PresentationLayer;
 using Demo.PresentationLayer.Views;
 using Demo.UILayer.WinForms.MDI.FormEventBinders.Main.Implementation;
 using Demo.UILayer.WinForms.MDI.FormEventBinders.Main.Interface;

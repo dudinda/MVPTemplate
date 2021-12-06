@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows.Controls;
 
+using Demo.PresentationLayer.Presenters;
 using Demo.PresentationLayer.Views;
 using Demo.UILayer.WPF.SDI.WindowEventBinders.Singleton.Interface;
 using Demo.UILayer.WPF.SDI.WindowExposers;
@@ -44,6 +45,10 @@ namespace Demo.UILayer.WPF.SDI.Windows.Singleton
         /// </summary>
         public void Dispose()
         {
+            Controller
+               .Aggregator
+               .Unsubscribe(typeof(SingletonWindowPresenter), this);
+
             Close();
         }
 
