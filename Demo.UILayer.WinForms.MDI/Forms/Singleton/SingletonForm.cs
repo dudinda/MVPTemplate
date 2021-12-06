@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 
+using Demo.PresentationLayer.Presenters;
 using Demo.PresentationLayer.Views;
 using Demo.UILayer.WinForms.MDI.FormEventBinders.SingletonForm.Interface;
 using Demo.UILayer.WinForms.MDI.FormExposers;
@@ -50,6 +51,10 @@ namespace Demo.UILayer.WinForms.MDI.Forms.Singleton
             {
                 components.Dispose();
             }
+
+            Controller
+                .Aggregator
+                .Unsubscribe(typeof(SingletonWindowPresenter), this);
 
             base.Dispose(true);
         }

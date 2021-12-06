@@ -47,8 +47,8 @@ namespace Demo.UILayer.WinForms.SDI.Forms.Transient
             }
 
             Controller
-               .Aggregator
-               .Unsubscribe(typeof(TransientWindowPresenter), this);
+                .Aggregator
+                .Unsubscribe(typeof(TransientWindowPresenter), this);
 
             base.Dispose(true);
         }

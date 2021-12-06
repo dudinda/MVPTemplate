@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Windows.Controls;
 
+using Demo.PresentationLayer.Presenters;
 using Demo.PresentationLayer.Views;
 using Demo.UILayer.WPF.SDI.WindowEventBinders.Main.Interface;
 using Demo.UILayer.WPF.SDI.WindowExposers;
@@ -46,6 +47,10 @@ namespace Demo.UILayer.WPF.SDI.Windows.Main
 
         protected override void OnClosing(CancelEventArgs e)
         {
+            Controller
+                .Aggregator
+                .Unsubscribe(typeof(MainPresenter), this);
+
             AppLifecycle.Exit();
             base.OnClosing(e);
             Environment.Exit(0);

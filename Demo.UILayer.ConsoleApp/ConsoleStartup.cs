@@ -15,7 +15,7 @@ using ImageProcessing.Microkernel.MVP.IoC.Interface;
 
 namespace Demo.UILayer.ConsoleApp
 {
-    public class ConsoleStartup : IStartup
+    internal sealed class ConsoleStartup : IStartup
     {
         public void Build(IComponentProvider builder)
         {
