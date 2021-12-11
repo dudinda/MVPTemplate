@@ -17,7 +17,7 @@ namespace Demo.UILayer.WinForms.TDI
         {
             try
             {
-                AppLifecycle.Build<WinformsSDIStartup>(DiContainer.Ninject);
+                AppLifecycle.Build<WinformsTDIStartup>(DiContainer.Ninject);
                 AppLifecycle.Run<MainPresenter>();
             }
             catch (Exception ex)

@@ -15,7 +15,7 @@ using ImageProcessing.Microkernel.MVP.IoC.Interface;
 
 namespace Demo.UILayer.WinForms.TDI
 {
-    internal sealed class WinformsSDIStartup : IStartup
+    internal sealed class WinformsTDIStartup : IStartup
     {
         public void Build(IComponentProvider builder)
         {
