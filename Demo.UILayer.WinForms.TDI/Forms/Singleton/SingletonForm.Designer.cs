@@ -42,9 +42,9 @@ namespace Demo.UILayer.WinForms.TDI.Forms.Singleton
             this.IdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.IdLabel.Location = new System.Drawing.Point(12, 9);
             this.IdLabel.Name = "IdLabel";
-            this.IdLabel.Size = new System.Drawing.Size(154, 24);
+            this.IdLabel.Size = new System.Drawing.Size(137, 24);
             this.IdLabel.TabIndex = 2;
-            this.IdLabel.Text = "Singleton Form:  ";
+            this.IdLabel.Text = "Singleton Tab: ";
             // 
             // SingletonForm
             // 

@@ -55,14 +55,14 @@ namespace Demo.UILayer.WinForms.TDI.Forms.Main
             // TransientMenuBtn
             // 
             this.TransientMenuBtn.Name = "TransientMenuBtn";
-            this.TransientMenuBtn.Size = new System.Drawing.Size(95, 23);
-            this.TransientMenuBtn.Text = "Transient form";
+            this.TransientMenuBtn.Size = new System.Drawing.Size(86, 23);
+            this.TransientMenuBtn.Text = "Transient tab";
             // 
             // SingletonFormBtn
             // 
             this.SingletonFormBtn.Name = "SingletonFormBtn";
-            this.SingletonFormBtn.Size = new System.Drawing.Size(98, 23);
-            this.SingletonFormBtn.Text = "Singleton form";
+            this.SingletonFormBtn.Size = new System.Drawing.Size(89, 23);
+            this.SingletonFormBtn.Text = "Singleton tab";
             // 
             // Message
             // 

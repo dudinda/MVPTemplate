@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 using Demo.PresentationLayer.Presenters;
 using Demo.PresentationLayer.Views;
