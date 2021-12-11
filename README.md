@@ -17,7 +17,7 @@
 </br>  
 </br>    
 <p align="center">
-    <img src="https://i.imgur.com/z2ZBUa5.png" width="900" height = "600" alt="application window">
+    <img src="https://i.imgur.com/5vUflqr.png" width="900" height = "600" alt="application window">
     <p align="center">Fig. 3 - The main form and child TDI transient tabs and the singleton tab. The main menu also shows the message from the singleton tab. To close the tab focus the "Send Message" button and press the Del key.</p>
 </p>
 </br>  
