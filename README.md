@@ -1,4 +1,4 @@
-<p>The original repository https://github.com/dudinda/Image-Processing.</p>
+[The original repository](https://github.com/dudinda/Image-Processing)
 
 ***
 
