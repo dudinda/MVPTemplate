@@ -11,7 +11,7 @@
    - [Console](#Console)
 ***
 
-##WFMDI
+## WFMDI
 
 <p align="center">
     <img src="https://i.imgur.com/hdAT5KH.png" width="900" height = "600" alt="application window">
@@ -20,7 +20,7 @@
 </br>  
 </br>    
 
-##WFSDI
+## WFSDI
 
 <p align="center">
     <img src="https://i.imgur.com/2J1FTer.png" width="900" height = "600" alt="application window">
@@ -29,7 +29,7 @@
 </br>  
 </br>    
 
-##WFTDI
+## WFTDI
 
 <p align="center">
     <img src="https://i.imgur.com/5vUflqr.png" width="900" height = "600" alt="application window">
@@ -38,7 +38,7 @@
 </br>  
 </br>    
 
-##WPFSDI
+## WPFSDI
 
 <p align="center">
     <img src="https://i.imgur.com/CM6zlMS.png" width="900" height = "600" alt="application window">
@@ -47,7 +47,7 @@
 </br>  
 </br>    
 
-#Console
+## Console
 
 <p align="center">
     <img src="https://i.imgur.com/9Vnekac.png" width="900" height = "500" alt="application window">
