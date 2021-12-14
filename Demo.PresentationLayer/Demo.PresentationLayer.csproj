@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ImageProcessing.Microkernel.EntryPoint" Version="1.0.2" />
+    <PackageReference Include="ImageProcessing.Microkernel.EntryPoint" Version="1.1.0" />
     <PackageReference Include="System.Diagnostics.EventLog" Version="5.0.1" />
   </ItemGroup>
 
@@ -30,6 +30,9 @@
     </AssemblyAttribute>
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
       <_Parameter1>Demo.UILayer.WPF.SDI</_Parameter1>
+    </AssemblyAttribute>
+       <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>Demo.UILayer.WPF.MDI</_Parameter1>
     </AssemblyAttribute>
     <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
       <_Parameter1>Demo.UILayer.WPF.TDI</_Parameter1>

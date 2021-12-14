@@ -1,4 +1,4 @@
-﻿
+﻿using Demo.PresentationLayer.DomainEvents.Common;
 using Demo.PresentationLayer.DomainEvents.Main;
 using Demo.UILayer.WinForms.TDI.FormEventBinders.Main.Interface;
 using Demo.UILayer.WinForms.TDI.FormExposers;
@@ -23,6 +23,9 @@ namespace Demo.UILayer.WinForms.TDI.FormEventBinders.Main.Implementation
 
             source.TransientMenu.Click += (sender, args)
                 => _aggregator.PublishFrom(source, new ShowTransientViewEventArgs());
+
+            source.FormClosed += (sender, args)
+                => _aggregator.PublishFrom(source, new CloseEventArgs());
         }
     }
 }

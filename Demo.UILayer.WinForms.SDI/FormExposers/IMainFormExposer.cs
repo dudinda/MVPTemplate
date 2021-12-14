@@ -18,5 +18,8 @@ namespace Demo.UILayer.WinForms.SDI.FormExposers
         /// Menu item to open a singleton form.
         /// </summary>
         ToolStripMenuItem SingletonMenu { get; }
+
+        ///<inheritdoc cref="FormClosedEventHandler"/>
+        event FormClosedEventHandler FormClosed;
     }
 }

@@ -23,5 +23,8 @@ namespace Demo.UILayer.WinForms.TDI.FormExposers
         /// Container for the tabs.
         /// </summary>
         TabControl TabsCtrl { get; }
+
+        ///<inheritdoc cref="FormClosedEventHandler"/>
+        event FormClosedEventHandler FormClosed;
     }
 }

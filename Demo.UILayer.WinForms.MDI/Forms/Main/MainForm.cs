@@ -25,6 +25,12 @@ namespace Demo.UILayer.WinForms.MDI.Forms.Main
             Application.Run(Context);
         }
 
+        public new void Close()
+        {
+            base.Close();
+            Controller.Dispose();
+        }
+
         public void Tooltip(string msg)
         {
             Message.Text = msg;

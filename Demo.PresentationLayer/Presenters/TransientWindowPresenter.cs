@@ -28,7 +28,7 @@ namespace Demo.PresentationLayer.Presenters
         {
             try
             {
-                Controller.Aggregator.PublishFromAll(publisher,
+                Aggregator.PublishFromAll(publisher,
                     new MsgEventArgs(string.Format(Messages.Msg, publisher.GetHashCode())));
             }
             catch (Exception ex)
