@@ -2,7 +2,8 @@
 [The original repository](https://github.com/dudinda/Image-Processing)
 
 1. [Guide](#Guide)
-   - [SetUp](#SetUp)
+   - [Prepare](#Prepare)
+   - [Develop](#Develop)
    - [Test](#Test)
 3. [Demo](#Demo)
    - [WinForms MDI](#WFMDI)
@@ -11,7 +12,7 @@
    - [WPF SDI](#WPFSDI)
    - [Console](#Console)
 ***
-## SetUp
+## Prepare
 
 1. Create a presentation layer as a dynamic library. Install the <code>ImageProcessing.Microkernel.EntryPoint</code> from Nuget. Add an implementation of the <code>IStartup</code> interface, create folders for presenters/events/views/viewmodels.
 2. Define a new interface for your main view. It should implement the <code>IView</code> interface.
@@ -22,7 +23,7 @@
 7. You can inject the singleton instance of the <code>IEventAggregator</code> into your main form or expose elements to a form event binder component. Bind the defined domain event.
 8. Register your main view and its event binder in the <code>UIStartup</code>. You can declare the main view as a singleton to inject it to child views.
 9. Inside the Program class use the static state machine to <code>AppLifecycle.Build\<UIStartup\></code> and <code>AppLifecycle.Run\<MainPresenter\></code>.
-   
+***   
 ## WFMDI
 
 <p align="center">
