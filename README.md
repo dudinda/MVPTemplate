@@ -1,6 +1,5 @@
+# MVP Template
 [The original repository](https://github.com/dudinda/Image-Processing)
-
-***
 
 1. [Guide](#Guide)
 2. [Demo](#Demo)
