@@ -2,14 +2,16 @@
 [The original repository](https://github.com/dudinda/Image-Processing)
 
 1. [Guide](#Guide)
-2. [Demo](#Demo)
+   - [SetUp](#SetUp)
+   - [Test](#Test)
+3. [Demo](#Demo)
    - [WinForms MDI](#WFMDI)
    - [WinForms SDI](#WFSDI)
    - [WinForms TDI](#WFTDI)
    - [WPF SDI](#WPFSDI)
    - [Console](#Console)
 ***
-## Guide
+## SetUp
 
 1. Create a presentation layer as a dynamic library. Install the <code>ImageProcessing.Microkernel.EntryPoint</code> from Nuget. Add an implementation of the <code>IStartup</code> interface, create folders for presenters/events/views/viewmodels.
 2. Define a new interface for your main view. It should implement the <code>IView</code> interface.
