@@ -2,9 +2,9 @@
 [The original repository](https://github.com/dudinda/Image-Processing)
 
 1. [Guide](#Guide)
-   - [Prepare](#Prepare)
-   - [Develop](#Develop)
-   - [Test](#Test)
+   - [How to Set Up](#how-to-set-up)
+   - [How to Develop](#how-to-develop)
+   - [How to Test](#how-to-test)
 3. [Demo](#Demo)
    - [WinForms MDI](#WFMDI)
    - [WinForms SDI](#WFSDI)
@@ -12,7 +12,7 @@
    - [WPF SDI](#WPFSDI)
    - [Console](#Console)
 ***
-## Prepare
+## How to Set Up
 
 1. Create a presentation layer as a dynamic library. Install the <code>ImageProcessing.Microkernel.EntryPoint</code> from Nuget. Add an implementation of the <code>IStartup</code> interface, create folders for presenters/events/views/viewmodels.
 2. Define a new interface for your main view. It should implement the <code>IView</code> interface.
@@ -25,7 +25,7 @@
 9. Inside the Program class use the static state machine to <code>AppLifecycle.Build\<UIStartup\></code> and <code>AppLifecycle.Run\<MainPresenter\></code>.
    
    
-## Develop
+## How to Develop
    1. Use <code>Run\<TPresenter\></code> or <code>Run\<TPresenter, TViewModel\></code> to run a presenter. When a <code>View</code> accessed for the first time, a DI - container resolve a view by the interface, decoupling the concrete implementation of a framework ui component. 
    2. Use <code>PublishFrom\<TEventArgs\>(object publisher, TEventArgs args)</code> to unicast a message from a view to its presenter. 
    3. Use <code>PublishFromAll\<TEventArgs\>(object publisher, TEventArgs args)</code> to broadcast a message from a view to all presenters subscribed to the <code>TEventArgs</code>. Also can be used to message from a presenter to a presenter if a target presenter have a unique subscriber during the broadcast. 
