@@ -23,6 +23,13 @@
 7. You can inject the singleton instance of the <code>IEventAggregator</code> into your main form or expose elements to a form event binder component. Bind the defined domain event.
 8. Register your main view and its event binder in the <code>UIStartup</code>. You can declare the main view as a singleton to inject it to child views and access control properties via the exposer cast.
 9. Inside the Program class use the static state machine to <code>AppLifecycle.Build\<UIStartup\></code> and <code>AppLifecycle.Run\<MainPresenter\></code>.
+   
+   
+## Develop
+   1. Use <code>Run<TPresenter></code> or <code>Run<TPresenter, TViewMode></code> to run a presenter. When a <code>View</code> accessed for the first time, a DI - container resolve a view by the interface, decoupling the concrete implementation of a framework ui component. 
+   2. Use <code>PublishFrom<TEventArgs>(object publisher, TEventArgs args)</code> to unicast a message from a view to its presenter. 
+   3. Use <code>PublishFromAll<TEventArgs>(object publisher, TEventArgs args)</code> to broadcast a message from a view to all presenters subscribed to the <code>TEventArgs</code>. Also can be used to message from a presenter to a presenter if a target presenter have a unique subscriber during the broadcast. 
+   4. Use <code>Unsubscribe(Type subscriber, object publisher)</code> to unsubcribe a view from its presenter. Can be use during the disposing of a view.
 ***   
 ## WFMDI
 
