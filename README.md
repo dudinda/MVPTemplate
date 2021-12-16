@@ -18,7 +18,7 @@
 2. Define a new interface for your main view. It should implement the <code>IView</code> interface.
 3. Create a new presenter for your main view. Inherit it from the <code>BasePresenter\<TView\></code>. Create a new domain event and subscribe it to the main presenter with the <code>ISubscriber\<TEventArgs\></code> interface.
 4. Create an executing assembly. Reference the presentation library. It can be a console, WPF or WinForms project. Add an implementation of the <code>IStartup</code> interface for the UI Layer components. 
-5. If necessary, create a base form to handle write/read from another thread or access the aggregator or application controller.
+5. If necessary, create a base form to handle write/read from another thread or access the aggregator or application controller. Using the IComponentProvider interface register the ApplicationContext as a singleton then resolve it. You can do it once via the null reference check with the private field.
 6. Implement the <code>IMainView</code> interface for your main form. In case of WinForms you can use the <code>Aggregator.Unpublish</code> inside the <code>Dispose</code> call. Hide the generated dispose with the <code>new</code> syntax then replace if a view is a transient, or remove it in the case of a singleton, delegating the disposing call to a DI-container.
 7. You can inject the singleton instance of the <code>IEventAggregator</code> into your main form or expose elements to a form event binder component. Bind the defined domain event.
 8. Register your main view and its event binder in the <code>UIStartup</code>. You can declare the main view as a singleton to inject it to child views and access control properties via the exposer cast.
