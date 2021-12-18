@@ -30,6 +30,18 @@
    2. Use <code>PublishFrom\<TEventArgs\>(object publisher, TEventArgs args)</code> to unicast a message from a view to its presenter. 
    3. Use <code>PublishFromAll\<TEventArgs\>(object publisher, TEventArgs args)</code> to broadcast a message from a view to all presenters subscribed to the <code>TEventArgs</code>. It is also can be used to message from a presenter to a presenter if a target presenter have a unique subscriber during the broadcast. 
    4. Use <code>Unsubscribe(Type subscriber, object publisher)</code> to unsubcribe a view from its presenter. Can be used during the disposing of a view.
+   
+  
+## How to Test
+   1. Generate or create virtual wrappers around the original components. If a component has a composition with another wrapper, expose its interface as a public property. 
+   2. Using the fluent interface, build the partial substitutes with the virtual wrappers to use the original components by default. .Result the .ConfigureAwait(false) calls. 
+   3. Extend the original forms with NonUIForms, overriding the write/read methods.
+   4. Inside a form wrapper create a bridge with a NonUIForm. 
+   5. Inside a presenter use the original source code, operating with partial substitutes. Expose substitutes as a public property.
+   6. Extend the syncronizationcontext, override the Post property. Override the Post inside the aggregator, set the extended synchronization context.
+   7. Create a base test, use the static state machine to Build partial substitutes on the [SetUp] and to Exit on the [TearDown].
+   8. You can now write asynchronous scenario using Mocks. Raise an event from a form wrapper, when use .Receieved() interface to validate arguments and returns.
+   
 ***   
 ## WFMDI
 
