@@ -35,7 +35,7 @@
 ## How to Test
    1. Generate or create virtual wrappers around the original components. If a component has a composition with another wrapper, expose its interface as a public property. 
    2. Using the fluent interface, build the partial substitutes with the virtual wrappers to use the original components by default. <code>.Result</code> the <code>.ConfigureAwait(false)</code> calls. 
-   3. Extend the original forms with NonUIForms, overriding the write/read methods.
+   3. <a href="https://github.com/dudinda/Image-Processing/blob/master/Tests/ImageProcessing.App.Integration/Monolith/UILayer/Forms/ColorMatrixFormWrapper.cs#L19">Extend the original forms with NonUIForms</a>, overriding the write/read methods.
    4. Inside a form wrapper create a bridge with a NonUIForm. 
    5. Inside a presenter use the original source code, operating with partial substitutes. Expose substitutes as a public property.
    6. Extend the syncronizationcontext, override the Post property. Override the Post inside the aggregator, set the extended synchronization context.
