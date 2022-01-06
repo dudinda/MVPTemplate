@@ -26,9 +26,9 @@
    
    
 ## How to Develop
-   1. Use <code>Run\<TPresenter\></code> or <code>Run\<TPresenter, TViewModel\></code> to run a presenter. When a <code>View</code> accessed for the first time, a DI - container resolve a view by the interface, decoupling the concrete implementation of a ui framework (WF, WPF, Console) component. 
+   1. Use <code>Run\<TPresenter\></code> or <code>Run\<TPresenter, TViewModel\></code> to run a presenter. When a <code>View</code> accessed for the first time, a DI - container resolve the view by its interface, decoupling a concrete implementation of a gui framework (WF, WPF, Console) component. 
    2. Use <code>PublishFrom\<TEventArgs\>(object publisher, TEventArgs args)</code> to unicast a message from a view to its presenter. 
-   3. Use <code>PublishFromAll\<TEventArgs\>(object publisher, TEventArgs args)</code> to broadcast a message from a view to all presenters subscribed to the <code>TEventArgs</code>. It is also can be used to message from a presenter to a presenter if a target presenter have a unique subscriber during the broadcast. 
+   3. Use <code>PublishFromAll\<TEventArgs\>(object publisher, TEventArgs args)</code> to broadcast a message from a view to all presenters subscribed to the <code>TEventArgs</code>. It can also be used to message from a presenter to a presenter if a target presenter have a unique subscriber during the broadcast. 
    4. Use <code>Unsubscribe(Type subscriber, object publisher)</code> to unsubcribe a view from its presenter. Can be used during the disposing of a view.
    
   
