@@ -2,7 +2,7 @@
 using Demo.UILayer.WinForms.TDI.FormEventBinders.SingletonForm.Interface;
 using Demo.UILayer.WinForms.TDI.FormExposers;
 
-using ImageProcessing.Microkernel.MVP.Aggregator.Interface;
+using ImageProcessing.Microkernel.MVP.Services.Aggregator;
 
 namespace Demo.UILayer.WinForms.TDI.FormEventBinders.SingletonForm.Implementation
 {

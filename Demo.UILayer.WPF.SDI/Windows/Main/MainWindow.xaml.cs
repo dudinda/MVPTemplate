@@ -7,7 +7,7 @@ using Demo.PresentationLayer.Views;
 using Demo.UILayer.WPF.SDI.WindowEventBinders.Main.Interface;
 using Demo.UILayer.WPF.SDI.WindowExposers;
 
-using ImageProcessing.Microkernel.EntryPoint;
+using ImageProcessing.Microkernel.MVP.Services.Controller.Implementation;
 
 namespace Demo.UILayer.WPF.SDI.Windows.Main
 {
@@ -51,7 +51,7 @@ namespace Demo.UILayer.WPF.SDI.Windows.Main
                 .Aggregator
                 .Unsubscribe(typeof(MainPresenter), this);
 
-            AppLifecycle.Exit();
+            AppController.Controller.Dispose();
             base.OnClosing(e);
             Environment.Exit(0);
         }

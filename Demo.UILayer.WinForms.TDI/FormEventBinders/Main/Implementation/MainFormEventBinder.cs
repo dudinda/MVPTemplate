@@ -3,7 +3,7 @@ using Demo.PresentationLayer.DomainEvents.Main;
 using Demo.UILayer.WinForms.TDI.FormEventBinders.Main.Interface;
 using Demo.UILayer.WinForms.TDI.FormExposers;
 
-using ImageProcessing.Microkernel.MVP.Aggregator.Interface;
+using ImageProcessing.Microkernel.MVP.Services.Aggregator;
 
 namespace Demo.UILayer.WinForms.TDI.FormEventBinders.Main.Implementation
 {

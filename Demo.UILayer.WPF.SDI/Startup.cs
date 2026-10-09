@@ -1,5 +1,4 @@
-﻿using Demo.PresentationLayer;
-using Demo.PresentationLayer.Views;
+﻿using Demo.PresentationLayer.Views;
 using Demo.UILayer.WPF.SDI.WindowEventBinders.Main.Implementation;
 using Demo.UILayer.WPF.SDI.WindowEventBinders.Main.Interface;
 using Demo.UILayer.WPF.SDI.WindowEventBinders.Singleton.Implementation;
@@ -10,17 +9,17 @@ using Demo.UILayer.WPF.SDI.Windows.Main;
 using Demo.UILayer.WPF.SDI.Windows.Singleton;
 using Demo.UILayer.WPF.SDI.Windows.Transient;
 
-using ImageProcessing.Microkernel.AppConfig;
-using ImageProcessing.Microkernel.MVP.IoC.Interface;
+using ImageProcessing.Microkernel.MVP.Models;
+using ImageProcessing.Microkernel.MVP.Services.Providers;
 
 
 namespace Demo.UILayer.WPF.SDI
 {
-    internal sealed class WpfSDIStartup : IStartup
+    internal sealed class Startup : IStartup
     {
         public void Build(IComponentProvider builder)
         {
-            new Startup().Build(builder);
+            new PresentationLayer.Startup().Build(builder);
 
             builder
                 .RegisterSingleton<IMainView, MainWindow>()

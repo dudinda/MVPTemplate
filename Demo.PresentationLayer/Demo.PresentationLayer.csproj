@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ImageProcessing.Microkernel.EntryPoint" Version="1.1.0" />
+    <PackageReference Include="ImageProcessing.Microkernel.MVP" Version="2.0.0" />
     <PackageReference Include="System.Diagnostics.EventLog" Version="5.0.1" />
   </ItemGroup>
 

@@ -2,7 +2,7 @@
 using Demo.UILayer.WPF.SDI.WindowEventBinders.Singleton.Interface;
 using Demo.UILayer.WPF.SDI.WindowExposers;
 
-using ImageProcessing.Microkernel.MVP.Aggregator.Interface;
+using ImageProcessing.Microkernel.MVP.Services.Aggregator;
 
 namespace Demo.UILayer.WPF.SDI.WindowEventBinders.Singleton.Implementation
 {

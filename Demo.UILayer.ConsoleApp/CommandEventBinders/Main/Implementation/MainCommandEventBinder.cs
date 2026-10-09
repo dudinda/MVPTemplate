@@ -5,7 +5,7 @@ using Demo.PresentationLayer.Views;
 using Demo.UILayer.ConsoleApp.Code.Enums;
 using Demo.UILayer.ConsoleApp.CommandEventBinders.Main.Interface;
 
-using ImageProcessing.Microkernel.MVP.Aggregator.Interface;
+using ImageProcessing.Microkernel.MVP.Services.Aggregator;
 
 namespace Demo.UILayer.ConsoleApp.CommandEventBinders.Main.Implementation
 {

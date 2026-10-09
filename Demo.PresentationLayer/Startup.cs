@@ -2,8 +2,8 @@
 
 using Demo.PresentationLayer.Code.Constants;
 
-using ImageProcessing.Microkernel.AppConfig;
-using ImageProcessing.Microkernel.MVP.IoC.Interface;
+using ImageProcessing.Microkernel.MVP.Models;
+using ImageProcessing.Microkernel.MVP.Services.Providers;
 
 namespace Demo.PresentationLayer
 {

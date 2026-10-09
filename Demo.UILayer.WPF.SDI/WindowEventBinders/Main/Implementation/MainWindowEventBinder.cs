@@ -3,7 +3,7 @@ using Demo.PresentationLayer.DomainEvents.Main;
 using Demo.UILayer.WPF.SDI.WindowEventBinders.Main.Interface;
 using Demo.UILayer.WPF.SDI.WindowExposers;
 
-using ImageProcessing.Microkernel.MVP.Aggregator.Interface;
+using ImageProcessing.Microkernel.MVP.Services.Aggregator;
 
 namespace Demo.UILayer.WPF.SDI.WindowEventBinders.Main.Implementation
 {

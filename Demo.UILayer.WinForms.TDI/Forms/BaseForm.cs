@@ -2,8 +2,8 @@ using System;
 using System.Threading;
 using System.Windows.Forms;
 
-using ImageProcessing.Microkernel.MVP.Controller.Implementation;
-using ImageProcessing.Microkernel.MVP.Controller.Interface;
+using ImageProcessing.Microkernel.MVP.Services.Controller;
+using ImageProcessing.Microkernel.MVP.Services.Controller.Implementation;
 using ImageProcessing.Microkernel.MVP.View;
 
 namespace Demo.UILayer.WinForms.TDI.Forms

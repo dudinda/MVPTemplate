@@ -10,7 +10,7 @@ using Demo.UILayer.ConsoleApp.Code.Extensions;
 using Demo.UILayer.ConsoleApp.CommandEventBinders.Singleton.Interface;
 using Demo.UILayer.ConsoleApp.Services.Pulse.Interface;
 
-using ImageProcessing.Microkernel.MVP.Controller.Implementation;
+using ImageProcessing.Microkernel.MVP.Services.Controller.Implementation;
 
 namespace Demo.UILayer.ConsoleApp.Commands
 {

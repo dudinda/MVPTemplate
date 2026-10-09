@@ -1,5 +1,4 @@
-﻿using Demo.PresentationLayer;
-using Demo.PresentationLayer.Views;
+﻿using Demo.PresentationLayer.Views;
 using Demo.UILayer.WinForms.SDI.FormEventBinders.Main.Implementation;
 using Demo.UILayer.WinForms.SDI.FormEventBinders.Main.Interface;
 using Demo.UILayer.WinForms.SDI.FormEventBinders.SingletonForm.Implementation;
@@ -10,16 +9,16 @@ using Demo.UILayer.WinForms.SDI.Forms.Main;
 using Demo.UILayer.WinForms.SDI.Forms.Singleton;
 using Demo.UILayer.WinForms.SDI.Forms.Transient;
 
-using ImageProcessing.Microkernel.AppConfig;
-using ImageProcessing.Microkernel.MVP.IoC.Interface;
+using ImageProcessing.Microkernel.MVP.Models;
+using ImageProcessing.Microkernel.MVP.Services.Providers;
 
 namespace Demo.UILayer.WinForms.SDI
 {
-    internal sealed class WinformsSDIStartup : IStartup
+    internal sealed class Startup : IStartup
     {
         public void Build(IComponentProvider builder)
         {
-            new Startup().Build(builder);
+            new PresentationLayer.Startup().Build(builder);
 
             builder
                 .RegisterSingleton<IMainView, MainForm>()

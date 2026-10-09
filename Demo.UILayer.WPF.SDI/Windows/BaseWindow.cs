@@ -3,8 +3,8 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
 
-using ImageProcessing.Microkernel.MVP.Controller.Implementation;
-using ImageProcessing.Microkernel.MVP.Controller.Interface;
+using ImageProcessing.Microkernel.MVP.Services.Controller;
+using ImageProcessing.Microkernel.MVP.Services.Controller.Implementation;
 using ImageProcessing.Microkernel.MVP.View;
 
 namespace Demo.UILayer.WPF.SDI.Windows

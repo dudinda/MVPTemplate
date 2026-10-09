@@ -3,7 +3,7 @@ using Demo.PresentationLayer.DomainEvents.TransientWindow;
 using Demo.UILayer.WPF.SDI.WindowEventBinders.Transient.Interface;
 using Demo.UILayer.WPF.SDI.WindowExposers;
 
-using ImageProcessing.Microkernel.MVP.Aggregator.Interface;
+using ImageProcessing.Microkernel.MVP.Services.Aggregator;
 
 namespace Demo.UILayer.WPF.SDI.WindowEventBinders.Transient.Implementation
 {
