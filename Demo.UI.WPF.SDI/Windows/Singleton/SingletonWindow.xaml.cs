@@ -1,0 +1,66 @@
+﻿using System.ComponentModel;
+using System.Windows.Controls;
+
+using Demo.Presentation.Presenters;
+using Demo.Presentation.Views;
+using Demo.UI.WPF.SDI.Services.WindowEventBinders.Singleton.Interface;
+using Demo.UI.WPF.SDI.Services.WindowExposers;
+
+namespace Demo.UI.WPF.SDI.Windows.Singleton
+{
+    /// <summary>
+    /// Interaction logic for SingletonWindow.xaml
+    /// </summary>
+    internal sealed partial class SingletonWindow : BaseWindow,
+        ISingletonFormView, ISingletonWindowExposer
+    {
+        private readonly ISingletonWindowEventBinder _binder;
+
+        public SingletonWindow(ISingletonWindowEventBinder binder)
+        {
+            InitializeComponent();
+
+            _binder = binder;
+            _binder.OnElementExpose(this);
+        }
+
+        public new void Show()
+        {
+            var hash = GetHashCode().ToString();
+            var header = (string)Header.Content;
+
+            if (!header.Contains(hash))
+            {
+                Header.Content += hash;
+            }
+
+            base.Show();
+        }
+
+        public Button Message
+            => SendMessage;
+
+        /// <summary>
+        /// Used by a DI-container in a singleton scope.
+        /// </summary>
+        public void Dispose()
+        {
+            Controller
+               .Aggregator
+               .Unsubscribe(typeof(SingletonWindowPresenter), this);
+
+            Close();
+        }
+
+        public void Tooltip(string msg)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            Hide();
+            e.Cancel = true;
+        }
+    }
+}
