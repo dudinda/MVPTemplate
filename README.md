@@ -84,6 +84,7 @@
     <img src="https://i.imgur.com/9Vnekac.png" width="900" height = "500" alt="application window">
     <p align="center">Fig. 5 - The console window is started with the main command and then the singleton command is switched to a foreground thread.</p>
 </p>
+
 ## Created With
 
 [.NET 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48), [netstandard2.0](https://learn.microsoft.com/en-us/dotnet/standard/net-standard?tabs=net-standard-2-0)
