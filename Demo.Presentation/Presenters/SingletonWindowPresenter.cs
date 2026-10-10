@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
 
 using Demo.Presentation.Code.Constants;
@@ -11,14 +10,16 @@ using Demo.Presentation.Views;
 using ImageProcessing.Microkernel.MVP.Aggregator.Subscriber;
 using ImageProcessing.Microkernel.MVP.Presenter.Implementation;
 
+using Microsoft.Extensions.Logging;
+
 namespace Demo.Presentation.Presenters
 {
     internal sealed class SingletonWindowPresenter : BasePresenter<ISingletonFormView, SingletonFormViewModel>,
         ISubscriber<SingletonMsgEventArgs>
     {
-        private readonly EventLog _logger;
+        private readonly ILogger<SingletonWindowPresenter> _logger;
 
-        public SingletonWindowPresenter(EventLog logger)
+        public SingletonWindowPresenter(ILogger<SingletonWindowPresenter> logger)
         {
             _logger = logger;
         }
@@ -34,7 +35,7 @@ namespace Demo.Presentation.Presenters
             catch (Exception ex)
             {
                 View.Tooltip(ex.Message);
-                _logger.WriteEntry(ex.Message, EventLogEntryType.Error);
+                _logger.LogError(ex.Message);
             }
 
             return Task.CompletedTask;

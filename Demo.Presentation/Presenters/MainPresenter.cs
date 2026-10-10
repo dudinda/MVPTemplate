@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Threading.Tasks;
 
 using Demo.Presentation.DomainEvents.Common;
@@ -10,6 +9,8 @@ using Demo.Presentation.Views;
 using ImageProcessing.Microkernel.MVP.Aggregator.Subscriber;
 using ImageProcessing.Microkernel.MVP.Presenter.Implementation;
 
+using Microsoft.Extensions.Logging;
+
 namespace Demo.Presentation.Presenters
 {
     public class MainPresenter : BasePresenter<IMainView>,
@@ -18,9 +19,9 @@ namespace Demo.Presentation.Presenters
         ISubscriber<MsgEventArgs>,
         ISubscriber<CloseEventArgs>
     {
-        private readonly EventLog _logger;
+        private readonly ILogger<MainPresenter> _logger;
 
-        public MainPresenter(EventLog logger)
+        public MainPresenter(ILogger<MainPresenter> logger)
         {
             _logger = logger;
         }
@@ -36,7 +37,7 @@ namespace Demo.Presentation.Presenters
             catch(Exception ex)
             {
                 View.Tooltip(ex.Message);
-                _logger.WriteEntry(ex.Message, EventLogEntryType.Error);
+                _logger.LogError(ex.Message);
             }
 
             return Task.CompletedTask;
@@ -53,7 +54,7 @@ namespace Demo.Presentation.Presenters
             catch (Exception ex)
             {
                 View.Tooltip(ex.Message);
-                _logger.WriteEntry(ex.Message, EventLogEntryType.Error);
+                _logger.LogError(ex.Message);
             }
 
             return Task.CompletedTask;
@@ -69,7 +70,7 @@ namespace Demo.Presentation.Presenters
             catch (Exception ex)
             {
                 View.Tooltip(ex.Message);
-                _logger.WriteEntry(ex.Message, EventLogEntryType.Error);
+                _logger.LogError(ex.Message);
             }
 
             return Task.CompletedTask;
@@ -83,7 +84,7 @@ namespace Demo.Presentation.Presenters
             }
             catch(Exception ex)
             {
-                _logger.WriteEntry(ex.Message, EventLogEntryType.Error);
+                _logger.LogError(ex.Message);
             }
 
             return Task.CompletedTask;
