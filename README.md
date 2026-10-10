@@ -94,3 +94,5 @@
 [Serilog](https://www.nuget.org/packages/serilog/), [Microsoft.Extensions.Logging](https://www.nuget.org/packages/microsoft.extensions.logging/)
 
 [Microsoft.Extensions.Configuration](https://www.nuget.org/packages/microsoft.extensions.configuration/)
+
+[ImageProcessing.Microkernel.MVP](https://www.nuget.org/packages/ImageProcessing.Microkernel.MVP/)
