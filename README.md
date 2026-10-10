@@ -5,12 +5,13 @@
    - [How to Set Up](#how-to-set-up)
    - [How to Develop](#how-to-develop)
    - [How to Test](#how-to-test)
-3. [Demo](#Demo)
+2. [Demo](#Demo)
    - [WinForms MDI](#WFMDI)
    - [WinForms SDI](#WFSDI)
    - [WinForms TDI](#WFTDI)
    - [WPF SDI](#WPFSDI)
    - [Console](#Console)
+3. [Created With](#created-with)
 ***
 ## How to Set Up
 
@@ -30,8 +31,8 @@
    2. Use <code>PublishFrom\<TEventArgs\>(object publisher, TEventArgs args)</code> to unicast a message from a view to its presenter. 
    3. Use <code>PublishFromAll\<TEventArgs\>(object publisher, TEventArgs args)</code> to broadcast a message from a view to all presenters subscribed to the <code>TEventArgs</code>. It can also be used to message from a presenter to a presenter if a target presenter have a unique subscriber during the broadcast. 
    4. Use <code>Unsubscribe(Type subscriber, object publisher)</code> to unsubcribe a view from its presenter. Can be used during the disposing of a view.
-   
-  
+
+
 ## How to Test
    1. Generate or create virtual wrappers around the original components. If a component has a composition with another wrapper, <a href="https://github.com/dudinda/Image-Processing/blob/master/Tests/ImageProcessing.App.Integration/Monolith/ServiceLayer/Providers/BitmapLuminance/Implementation/BitmapLuminanceProviderWrapper.cs#L18">expose its interface as a public property</a>. <a href="https://github.com/dudinda/Image-Processing/blob/master/Tests/ImageProcessing.App.Integration/Monolith/UILayer/Forms/ColorMatrixFormWrapper.cs#L19">Extend the original forms with NonUIForms</a>, overriding the write/read methods. Inside a form wrapper <a href="https://github.com/dudinda/Image-Processing/blob/master/Tests/ImageProcessing.App.Integration/Monolith/UILayer/Forms/ColorMatrixFormWrapper.cs#L38">create a bridge</a> with a NonUIForm. 
    4. Inside a presenter use the original source code, <a href="https://github.com/dudinda/Image-Processing/blob/master/Tests/ImageProcessing.App.Integration/Monolith/PresentationLayer/Presenters/MainPresenterWrapper.cs#L73">operating with partial substitutes</a>. Expose substitutes as a public property.
@@ -39,8 +40,8 @@
    6. <a href="https://github.com/dudinda/Image-Processing/blob/master/Tests/ImageProcessing.App.Integration/Monolith/UILayer/UIStartup.cs#L100">Using the fluent interface</a>, build the partial substitutes with the virtual wrappers to operate with the original components by default.
    7. <a href="https://github.com/dudinda/Image-Processing/blob/master/Tests/ImageProcessing.App.Integration/Tests/BaseTest.cs#L10">Create a base test</a>, use the static state machine to <code>Build</code> partial substitutes and to <code>Dispose</code> on the <code>[TearDown]</code>.
    8. <a href="https://github.com/dudinda/Image-Processing/blob/master/Tests/ImageProcessing.App.Integration/Tests/MainPresenter/MainPresenterTest.cs#L44">Write a synchronous scenario using partial substitutes</a>. Raise an event from a form wrapper. Use <code>.Receieved()</code> interface to validate arguments and return values.
-   
-***   
+
+***
 ## WFMDI
 
 <p align="center">
@@ -83,5 +84,12 @@
     <img src="https://i.imgur.com/9Vnekac.png" width="900" height = "500" alt="application window">
     <p align="center">Fig. 5 - The console window is started with the main command and then the singleton command is switched to a foreground thread.</p>
 </p>
-</br>  
-</br>    
+## Created With
+
+[.NET 4.8](https://dotnet.microsoft.com/en-us/download/dotnet-framework/net48), [netstandard2.0](https://learn.microsoft.com/en-us/dotnet/standard/net-standard?tabs=net-standard-2-0)
+
+[Windows Forms](https://github.com/dotnet/winforms), [WPF](https://learn.microsoft.com/en-us/dotnet/desktop/wpf/overview/)
+
+[Serilog](https://www.nuget.org/packages/serilog/), [Microsoft.Extensions.Logging](https://www.nuget.org/packages/microsoft.extensions.logging/)
+
+[Microsoft.Extensions.Configuration](https://www.nuget.org/packages/microsoft.extensions.configuration/)
